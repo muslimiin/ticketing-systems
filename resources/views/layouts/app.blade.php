@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -33,4 +33,20 @@
             </main>
         </div>
     </body>
+</html> --}}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>App Name - @yield('title')</title>
+    <!-- CSS and other head elements -->
+</head>
+
+<body>
+    <div class="container">
+        @yield('content')
+    </div>
+</body>
+
 </html>

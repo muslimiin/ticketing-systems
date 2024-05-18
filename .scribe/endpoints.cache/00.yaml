@@ -5,64 +5,14 @@ description: ''
 endpoints:
   -
     httpMethods:
-      - POST
-    uri: api/login
+      - GET
+    uri: api/dashboard
     metadata:
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Handle an incoming authentication request.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      email:
-        name: email
-        description: 'Must be a valid email address.'
-        required: true
-        example: jones.lelia@example.org
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      password:
-        name: password
-        description: ''
-        required: true
-        example: 55C5CS^y
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanBodyParameters:
-      email: jones.lelia@example.org
-      password: 55C5CS^y
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/logout
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Destroy an authenticated session.'
+      title: ''
       description: ''
       authenticated: false
       custom: []
@@ -76,127 +26,16 @@ endpoints:
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/register
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Handle an incoming registration request.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: digaf
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
         custom: []
-      email:
-        name: email
-        description: 'Must be a valid email address. Must not be greater than 255 characters.'
-        required: true
-        example: eda.weimann@example.org
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      password:
-        name: password
-        description: ''
-        required: true
-        example: labore
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanBodyParameters:
-      name: digaf
-      email: eda.weimann@example.org
-      password: labore
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/reset-password
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Handle an incoming new password request.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      token:
-        name: token
-        description: ''
-        required: true
-        example: vero
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      email:
-        name: email
-        description: 'Must be a valid email address.'
-        required: true
-        example: ueffertz@example.net
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      password:
-        name: password
-        description: ''
-        required: true
-        example: vel
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanBodyParameters:
-      token: vero
-      email: ueffertz@example.net
-      password: vel
-    fileParameters: []
-    responses: []
     responseFields: []
     auth: []
     controller: null
@@ -206,41 +45,21 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/verify-email/{id}/{hash}'
+    uri: api/user
     metadata:
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: "Mark the authenticated user's email address as verified."
+      title: ''
       description: ''
       authenticated: false
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the verify email.'
-        required: true
-        example: porro
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      hash:
-        name: hash
-        description: ''
-        required: true
-        example: accusantium
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      id: porro
-      hash: accusantium
+    urlParameters: []
+    cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -248,572 +67,11 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 500
-        content: |-
-          {
-              "message": "Call to a member function getKey() on null",
-              "exception": "Error",
-              "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Auth/EmailVerificationRequest.php",
-              "line": 18,
-              "trace": [
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
-                      "line": 36,
-                      "function": "authorize",
-                      "class": "Illuminate\\Foundation\\Auth\\EmailVerificationRequest",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Util.php",
-                      "line": 41,
-                      "function": "Illuminate\\Container\\{closure}",
-                      "class": "Illuminate\\Container\\BoundMethod",
-                      "type": "::"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
-                      "line": 93,
-                      "function": "unwrapIfClosure",
-                      "class": "Illuminate\\Container\\Util",
-                      "type": "::"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
-                      "line": 37,
-                      "function": "callBoundMethod",
-                      "class": "Illuminate\\Container\\BoundMethod",
-                      "type": "::"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Container.php",
-                      "line": 662,
-                      "function": "call",
-                      "class": "Illuminate\\Container\\BoundMethod",
-                      "type": "::"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/FormRequest.php",
-                      "line": 203,
-                      "function": "call",
-                      "class": "Illuminate\\Container\\Container",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Validation/ValidatesWhenResolvedTrait.php",
-                      "line": 21,
-                      "function": "passesAuthorization",
-                      "class": "Illuminate\\Foundation\\Http\\FormRequest",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Providers/FormRequestServiceProvider.php",
-                      "line": 30,
-                      "function": "validateResolved",
-                      "class": "Illuminate\\Foundation\\Http\\FormRequest",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Container.php",
-                      "line": 1302,
-                      "function": "Illuminate\\Foundation\\Providers\\{closure}",
-                      "class": "Illuminate\\Foundation\\Providers\\FormRequestServiceProvider",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Container.php",
-                      "line": 1267,
-                      "function": "fireCallbackArray",
-                      "class": "Illuminate\\Container\\Container",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Container.php",
-                      "line": 1252,
-                      "function": "fireAfterResolvingCallbacks",
-                      "class": "Illuminate\\Container\\Container",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Container.php",
-                      "line": 813,
-                      "function": "fireResolvingCallbacks",
-                      "class": "Illuminate\\Container\\Container",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Application.php",
-                      "line": 961,
-                      "function": "resolve",
-                      "class": "Illuminate\\Container\\Container",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Container.php",
-                      "line": 731,
-                      "function": "resolve",
-                      "class": "Illuminate\\Foundation\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Application.php",
-                      "line": 946,
-                      "function": "make",
-                      "class": "Illuminate\\Container\\Container",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/ResolvesRouteDependencies.php",
-                      "line": 85,
-                      "function": "make",
-                      "class": "Illuminate\\Foundation\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/ResolvesRouteDependencies.php",
-                      "line": 50,
-                      "function": "transformDependency",
-                      "class": "Illuminate\\Routing\\ControllerDispatcher",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/ResolvesRouteDependencies.php",
-                      "line": 30,
-                      "function": "resolveMethodDependencies",
-                      "class": "Illuminate\\Routing\\ControllerDispatcher",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php",
-                      "line": 60,
-                      "function": "resolveClassMethodDependencies",
-                      "class": "Illuminate\\Routing\\ControllerDispatcher",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php",
-                      "line": 40,
-                      "function": "resolveParameters",
-                      "class": "Illuminate\\Routing\\ControllerDispatcher",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
-                      "line": 260,
-                      "function": "dispatch",
-                      "class": "Illuminate\\Routing\\ControllerDispatcher",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
-                      "line": 205,
-                      "function": "runController",
-                      "class": "Illuminate\\Routing\\Route",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
-                      "line": 806,
-                      "function": "run",
-                      "class": "Illuminate\\Routing\\Route",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 144,
-                      "function": "Illuminate\\Routing\\{closure}",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php",
-                      "line": 50,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
-                      "line": 159,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
-                      "line": 135,
-                      "function": "handleRequest",
-                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
-                      "line": 87,
-                      "function": "handleRequestUsingNamedLimiter",
-                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 119,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
-                      "line": 807,
-                      "function": "then",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
-                      "line": 784,
-                      "function": "runRouteWithinStack",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
-                      "line": 748,
-                      "function": "runRoute",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
-                      "line": 737,
-                      "function": "dispatchToRoute",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
-                      "line": 200,
-                      "function": "dispatch",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 144,
-                      "function": "Illuminate\\Foundation\\Http\\{closure}",
-                      "class": "Illuminate\\Foundation\\Http\\Kernel",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
-                      "line": 21,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php",
-                      "line": 31,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
-                      "line": 21,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php",
-                      "line": 40,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TrimStrings",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php",
-                      "line": 27,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php",
-                      "line": 99,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php",
-                      "line": 62,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Http\\Middleware\\HandleCors",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php",
-                      "line": 39,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Http\\Middleware\\TrustProxies",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 119,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
-                      "line": 175,
-                      "function": "then",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
-                      "line": 144,
-                      "function": "sendRequestThroughRouter",
-                      "class": "Illuminate\\Foundation\\Http\\Kernel",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
-                      "line": 300,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Kernel",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
-                      "line": 288,
-                      "function": "callLaravelOrLumenRoute",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
-                      "line": 91,
-                      "function": "makeApiCall",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
-                      "line": 44,
-                      "function": "makeResponseCall",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
-                      "line": 35,
-                      "function": "makeResponseCallIfConditionsPass",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
-                      "line": 236,
-                      "function": "__invoke",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
-                      "line": 166,
-                      "function": "iterateThroughStrategies",
-                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
-                      "line": 95,
-                      "function": "fetchResponses",
-                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
-                      "line": 125,
-                      "function": "processRoute",
-                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
-                      "line": 72,
-                      "function": "extractEndpointsInfoFromLaravelApp",
-                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
-                      "line": 50,
-                      "function": "extractEndpointsInfoAndWriteToDisk",
-                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php",
-                      "line": 53,
-                      "function": "get",
-                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
-                      "line": 36,
-                      "function": "handle",
-                      "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Util.php",
-                      "line": 41,
-                      "function": "Illuminate\\Container\\{closure}",
-                      "class": "Illuminate\\Container\\BoundMethod",
-                      "type": "::"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
-                      "line": 93,
-                      "function": "unwrapIfClosure",
-                      "class": "Illuminate\\Container\\Util",
-                      "type": "::"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
-                      "line": 37,
-                      "function": "callBoundMethod",
-                      "class": "Illuminate\\Container\\BoundMethod",
-                      "type": "::"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Container.php",
-                      "line": 662,
-                      "function": "call",
-                      "class": "Illuminate\\Container\\BoundMethod",
-                      "type": "::"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Console/Command.php",
-                      "line": 211,
-                      "function": "call",
-                      "class": "Illuminate\\Container\\Container",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/symfony/console/Command/Command.php",
-                      "line": 326,
-                      "function": "execute",
-                      "class": "Illuminate\\Console\\Command",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Console/Command.php",
-                      "line": 181,
-                      "function": "run",
-                      "class": "Symfony\\Component\\Console\\Command\\Command",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/symfony/console/Application.php",
-                      "line": 1096,
-                      "function": "run",
-                      "class": "Illuminate\\Console\\Command",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/symfony/console/Application.php",
-                      "line": 324,
-                      "function": "doRunCommand",
-                      "class": "Symfony\\Component\\Console\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/symfony/console/Application.php",
-                      "line": 175,
-                      "function": "doRun",
-                      "class": "Symfony\\Component\\Console\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php",
-                      "line": 201,
-                      "function": "run",
-                      "class": "Symfony\\Component\\Console\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/inyourash/pribadi/ticketing-systems/artisan",
-                      "line": 37,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Console\\Kernel",
-                      "type": "->"
-                  }
-              ]
-          }
+        status: 200
+        content: ''
         headers:
+          content-type: 'text/html; charset=UTF-8'
           cache-control: 'no-cache, private'
-          content-type: application/json
           x-ratelimit-limit: '60'
           x-ratelimit-remaining: '59'
           access-control-allow-origin: '*'
@@ -828,13 +86,1080 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: api/verify-email
+    uri: api/events
     metadata:
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display the email verification prompt.'
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"id":1,"name":"ipsam","location":"suscipit","province":"omnis","category":"dolores","description":"tempore","information":"et","image":"cupiditate","start_time":"2024-05-18 14:31:28","end_time":"2024-05-18 14:31:28","created_at":"2024-05-18T14:34:03.000000Z","updated_at":"2024-05-18T14:34:03.000000Z","created_by":null,"updated_by":null}]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '58'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/events
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: nam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      location:
+        name: location
+        description: ''
+        required: true
+        example: saepe
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      province:
+        name: province
+        description: ''
+        required: true
+        example: quis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      category:
+        name: category
+        description: ''
+        required: true
+        example: tenetur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: true
+        example: voluptas
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      information:
+        name: information
+        description: ''
+        required: true
+        example: repudiandae
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      image:
+        name: image
+        description: ''
+        required: true
+        example: veniam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      start_time:
+        name: start_time
+        description: 'Must be a valid date.'
+        required: true
+        example: '2024-05-18T14:39:47'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      end_time:
+        name: end_time
+        description: 'Must be a valid date.'
+        required: true
+        example: '2024-05-18T14:39:47'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      name: nam
+      location: saepe
+      province: quis
+      category: tenetur
+      description: voluptas
+      information: repudiandae
+      image: veniam
+      start_time: '2024-05-18T14:39:47'
+      end_time: '2024-05-18T14:39:47'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/events/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the event.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id":1,"name":"ipsam","location":"suscipit","province":"omnis","category":"dolores","description":"tempore","information":"et","image":"cupiditate","start_time":"2024-05-18 14:31:28","end_time":"2024-05-18 14:31:28","created_at":"2024-05-18T14:34:03.000000Z","updated_at":"2024-05-18T14:34:03.000000Z","created_by":null,"updated_by":null}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '57'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/events/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the event.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: vitae
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      location:
+        name: location
+        description: ''
+        required: true
+        example: alias
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      province:
+        name: province
+        description: ''
+        required: true
+        example: dolor
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      category:
+        name: category
+        description: ''
+        required: true
+        example: aut
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: true
+        example: rem
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      information:
+        name: information
+        description: ''
+        required: true
+        example: ducimus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      image:
+        name: image
+        description: ''
+        required: true
+        example: dignissimos
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      start_time:
+        name: start_time
+        description: 'Must be a valid date.'
+        required: true
+        example: '2024-05-18T14:39:47'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      end_time:
+        name: end_time
+        description: 'Must be a valid date.'
+        required: true
+        example: '2024-05-18T14:39:47'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      name: vitae
+      location: alias
+      province: dolor
+      category: aut
+      description: rem
+      information: ducimus
+      image: dignissimos
+      start_time: '2024-05-18T14:39:47'
+      end_time: '2024-05-18T14:39:47'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/events/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the event.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/tickets
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"id":1,"event_id":1,"name":"incidunt","price":"1834.23","quota":1,"description":null,"max_purchase":17,"created_at":"2024-05-18T14:34:35.000000Z","updated_at":"2024-05-18T14:34:35.000000Z","created_by":null,"updated_by":null}]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '56'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/tickets
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      event_id:
+        name: event_id
+        description: ''
+        required: true
+        example: beatae
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      name:
+        name: name
+        description: ''
+        required: true
+        example: aliquid
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      price:
+        name: price
+        description: ''
+        required: true
+        example: 214021.3
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      quota:
+        name: quota
+        description: ''
+        required: true
+        example: 8
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      max_purchase:
+        name: max_purchase
+        description: ''
+        required: true
+        example: 13
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      event_id: beatae
+      name: aliquid
+      price: 214021.3
+      quota: 8
+      max_purchase: 13
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/tickets/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the ticket.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id":1,"event_id":1,"name":"incidunt","price":"1834.23","quota":1,"description":null,"max_purchase":17,"created_at":"2024-05-18T14:34:35.000000Z","updated_at":"2024-05-18T14:34:35.000000Z","created_by":null,"updated_by":null}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '55'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/tickets/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the ticket.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      event_id:
+        name: event_id
+        description: ''
+        required: true
+        example: similique
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      name:
+        name: name
+        description: ''
+        required: true
+        example: aperiam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      price:
+        name: price
+        description: ''
+        required: true
+        example: 717883.59521954
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      quota:
+        name: quota
+        description: ''
+        required: true
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      max_purchase:
+        name: max_purchase
+        description: ''
+        required: true
+        example: 14
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      event_id: similique
+      name: aperiam
+      price: 717883.59521954
+      quota: 2
+      max_purchase: 14
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/tickets/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the ticket.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/transactions
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"id":1,"transaction_date":"2024-05-18 14:31:29","event_id":1,"ticket_id":1,"price":"57280.99","quantity":5,"total":"286404.94","buyer_name":"saepe","buyer_email":"colin02@example.com","buyer_phone":"possimus","created_at":"2024-05-18T14:35:34.000000Z","updated_at":"2024-05-18T14:35:34.000000Z","created_by":null,"updated_by":null,"event":{"id":1,"name":"ipsam","location":"suscipit","province":"omnis","category":"dolores","description":"tempore","information":"et","image":"cupiditate","start_time":"2024-05-18 14:31:28","end_time":"2024-05-18 14:31:28","created_at":"2024-05-18T14:34:03.000000Z","updated_at":"2024-05-18T14:34:03.000000Z","created_by":null,"updated_by":null},"ticket":{"id":1,"event_id":1,"name":"incidunt","price":"1834.23","quota":1,"description":null,"max_purchase":17,"created_at":"2024-05-18T14:34:35.000000Z","updated_at":"2024-05-18T14:34:35.000000Z","created_by":null,"updated_by":null}}]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '54'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/transactions
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      transaction_date:
+        name: transaction_date
+        description: 'Must be a valid date.'
+        required: true
+        example: '2024-05-18T14:39:47'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      event_id:
+        name: event_id
+        description: ''
+        required: true
+        example: dolorem
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      ticket_id:
+        name: ticket_id
+        description: ''
+        required: true
+        example: unde
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      price:
+        name: price
+        description: ''
+        required: true
+        example: 2818.253
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      quantity:
+        name: quantity
+        description: ''
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      buyer_name:
+        name: buyer_name
+        description: ''
+        required: true
+        example: non
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      buyer_email:
+        name: buyer_email
+        description: 'Must be a valid email address.'
+        required: true
+        example: fahey.jordyn@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      buyer_phone:
+        name: buyer_phone
+        description: ''
+        required: true
+        example: earum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      transaction_date: '2024-05-18T14:39:47'
+      event_id: dolorem
+      ticket_id: unde
+      price: 2818.253
+      quantity: 1
+      buyer_name: non
+      buyer_email: fahey.jordyn@example.com
+      buyer_phone: earum
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/transactions/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the transaction.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id":1,"transaction_date":"2024-05-18 14:31:29","event_id":1,"ticket_id":1,"price":"57280.99","quantity":5,"total":"286404.94","buyer_name":"saepe","buyer_email":"colin02@example.com","buyer_phone":"possimus","created_at":"2024-05-18T14:35:34.000000Z","updated_at":"2024-05-18T14:35:34.000000Z","created_by":null,"updated_by":null,"event":{"id":1,"name":"ipsam","location":"suscipit","province":"omnis","category":"dolores","description":"tempore","information":"et","image":"cupiditate","start_time":"2024-05-18 14:31:28","end_time":"2024-05-18 14:31:28","created_at":"2024-05-18T14:34:03.000000Z","updated_at":"2024-05-18T14:34:03.000000Z","created_by":null,"updated_by":null},"ticket":{"id":1,"event_id":1,"name":"incidunt","price":"1834.23","quota":1,"description":null,"max_purchase":17,"created_at":"2024-05-18T14:34:35.000000Z","updated_at":"2024-05-18T14:34:35.000000Z","created_by":null,"updated_by":null}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '53'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/transactions/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the transaction.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      transaction_date:
+        name: transaction_date
+        description: 'Must be a valid date.'
+        required: true
+        example: '2024-05-18T14:39:47'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      event_id:
+        name: event_id
+        description: ''
+        required: true
+        example: sit
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      ticket_id:
+        name: ticket_id
+        description: ''
+        required: true
+        example: dolorum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      price:
+        name: price
+        description: ''
+        required: true
+        example: 669.7
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      quantity:
+        name: quantity
+        description: ''
+        required: true
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      buyer_name:
+        name: buyer_name
+        description: ''
+        required: true
+        example: exercitationem
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      buyer_email:
+        name: buyer_email
+        description: 'Must be a valid email address.'
+        required: true
+        example: hilpert.eryn@example.org
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      buyer_phone:
+        name: buyer_phone
+        description: ''
+        required: true
+        example: facere
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      transaction_date: '2024-05-18T14:39:47'
+      event_id: sit
+      ticket_id: dolorum
+      price: 669.7
+      quantity: 15
+      buyer_name: exercitationem
+      buyer_email: hilpert.eryn@example.org
+      buyer_phone: facere
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/transactions/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the transaction.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/purchase/reports
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
       description: ''
       authenticated: false
       custom: []
@@ -853,16 +1178,65 @@ endpoints:
         status: 500
         content: |-
           {
-              "message": "Call to a member function hasVerifiedEmail() on null",
-              "exception": "Error",
-              "file": "/home/inyourash/pribadi/ticketing-systems/app/Http/Controllers/Auth/EmailVerificationPromptController.php",
-              "line": 18,
+              "message": "Call to undefined relationship [buyer] on model [App\\Models\\Transaction].",
+              "exception": "Illuminate\\Database\\Eloquent\\RelationNotFoundException",
+              "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Database/Eloquent/RelationNotFoundException.php",
+              "line": 35,
               "trace": [
+                  {
+                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php",
+                      "line": 806,
+                      "function": "make",
+                      "class": "Illuminate\\Database\\Eloquent\\RelationNotFoundException",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/Relation.php",
+                      "line": 110,
+                      "function": "Illuminate\\Database\\Eloquent\\{closure}",
+                      "class": "Illuminate\\Database\\Eloquent\\Builder",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php",
+                      "line": 808,
+                      "function": "noConstraints",
+                      "class": "Illuminate\\Database\\Eloquent\\Relations\\Relation",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php",
+                      "line": 776,
+                      "function": "getRelation",
+                      "class": "Illuminate\\Database\\Eloquent\\Builder",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php",
+                      "line": 756,
+                      "function": "eagerLoadRelation",
+                      "class": "Illuminate\\Database\\Eloquent\\Builder",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php",
+                      "line": 724,
+                      "function": "eagerLoadRelations",
+                      "class": "Illuminate\\Database\\Eloquent\\Builder",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/inyourash/pribadi/ticketing-systems/app/Http/Controllers/PurchaseReportController.php",
+                      "line": 35,
+                      "function": "get",
+                      "class": "Illuminate\\Database\\Eloquent\\Builder",
+                      "type": "->"
+                  },
                   {
                       "file": "/home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Controller.php",
                       "line": 54,
-                      "function": "__invoke",
-                      "class": "App\\Http\\Controllers\\Auth\\EmailVerificationPromptController",
+                      "function": "index",
+                      "class": "App\\Http\\Controllers\\PurchaseReportController",
                       "type": "->"
                   },
                   {
@@ -1291,1173 +1665,10 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '58'
+          x-ratelimit-remaining: '52'
           access-control-allow-origin: '*'
         description: null
         custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/verify-email
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Send a new email verification notification.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: api/dashboard
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: api/user
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: api/events
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/events
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: ''
-        required: true
-        example: velit
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      location:
-        name: location
-        description: ''
-        required: true
-        example: qui
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      province:
-        name: province
-        description: ''
-        required: true
-        example: earum
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      category:
-        name: category
-        description: ''
-        required: true
-        example: ipsum
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      description:
-        name: description
-        description: ''
-        required: true
-        example: doloremque
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      information:
-        name: information
-        description: ''
-        required: true
-        example: recusandae
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      image:
-        name: image
-        description: ''
-        required: true
-        example: aspernatur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      start_time:
-        name: start_time
-        description: 'Must be a valid date.'
-        required: true
-        example: '2024-05-18T10:38:36'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      end_time:
-        name: end_time
-        description: 'Must be a valid date.'
-        required: true
-        example: '2024-05-18T10:38:36'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanBodyParameters:
-      name: velit
-      location: qui
-      province: earum
-      category: ipsum
-      description: doloremque
-      information: recusandae
-      image: aspernatur
-      start_time: '2024-05-18T10:38:36'
-      end_time: '2024-05-18T10:38:36'
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/events/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the event.'
-        required: true
-        example: 17
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      id: 17
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - PUT
-      - PATCH
-    uri: 'api/events/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the event.'
-        required: true
-        example: 17
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      id: 17
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: ''
-        required: true
-        example: ut
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      location:
-        name: location
-        description: ''
-        required: true
-        example: facilis
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      province:
-        name: province
-        description: ''
-        required: true
-        example: accusamus
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      category:
-        name: category
-        description: ''
-        required: true
-        example: assumenda
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      description:
-        name: description
-        description: ''
-        required: true
-        example: esse
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      information:
-        name: information
-        description: ''
-        required: true
-        example: ad
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      image:
-        name: image
-        description: ''
-        required: true
-        example: est
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      start_time:
-        name: start_time
-        description: 'Must be a valid date.'
-        required: true
-        example: '2024-05-18T10:38:36'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      end_time:
-        name: end_time
-        description: 'Must be a valid date.'
-        required: true
-        example: '2024-05-18T10:38:36'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanBodyParameters:
-      name: ut
-      location: facilis
-      province: accusamus
-      category: assumenda
-      description: esse
-      information: ad
-      image: est
-      start_time: '2024-05-18T10:38:36'
-      end_time: '2024-05-18T10:38:36'
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - DELETE
-    uri: 'api/events/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the event.'
-        required: true
-        example: 17
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      id: 17
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: api/tickets
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/tickets
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      event_id:
-        name: event_id
-        description: ''
-        required: true
-        example: modi
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      name:
-        name: name
-        description: ''
-        required: true
-        example: quod
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      price:
-        name: price
-        description: ''
-        required: true
-        example: 27.8802
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      quota:
-        name: quota
-        description: ''
-        required: true
-        example: 9
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      description:
-        name: description
-        description: ''
-        required: false
-        example: null
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      max_purchase:
-        name: max_purchase
-        description: ''
-        required: true
-        example: 4
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanBodyParameters:
-      event_id: modi
-      name: quod
-      price: 27.8802
-      quota: 9
-      max_purchase: 4
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/tickets/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the ticket.'
-        required: true
-        example: 10
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      id: 10
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - PUT
-      - PATCH
-    uri: 'api/tickets/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the ticket.'
-        required: true
-        example: 10
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      id: 10
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      event_id:
-        name: event_id
-        description: ''
-        required: true
-        example: et
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      name:
-        name: name
-        description: ''
-        required: true
-        example: quidem
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      price:
-        name: price
-        description: ''
-        required: true
-        example: 1713496.1909125
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      quota:
-        name: quota
-        description: ''
-        required: true
-        example: 19
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      description:
-        name: description
-        description: ''
-        required: false
-        example: null
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      max_purchase:
-        name: max_purchase
-        description: ''
-        required: true
-        example: 4
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanBodyParameters:
-      event_id: et
-      name: quidem
-      price: 1713496.1909125
-      quota: 19
-      max_purchase: 4
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - DELETE
-    uri: 'api/tickets/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the ticket.'
-        required: true
-        example: 10
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      id: 10
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: api/transactions
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/transactions
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      transaction_date:
-        name: transaction_date
-        description: 'Must be a valid date.'
-        required: true
-        example: '2024-05-18T10:38:36'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      event_id:
-        name: event_id
-        description: ''
-        required: true
-        example: dolorem
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      ticket_id:
-        name: ticket_id
-        description: ''
-        required: true
-        example: in
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      price:
-        name: price
-        description: ''
-        required: true
-        example: 4900061.2080616
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      quantity:
-        name: quantity
-        description: ''
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      buyer_name:
-        name: buyer_name
-        description: ''
-        required: true
-        example: facilis
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      buyer_email:
-        name: buyer_email
-        description: 'Must be a valid email address.'
-        required: true
-        example: kerluke.rhea@example.com
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      buyer_phone:
-        name: buyer_phone
-        description: ''
-        required: true
-        example: quod
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanBodyParameters:
-      transaction_date: '2024-05-18T10:38:36'
-      event_id: dolorem
-      ticket_id: in
-      price: 4900061.2080616
-      quantity: 16
-      buyer_name: facilis
-      buyer_email: kerluke.rhea@example.com
-      buyer_phone: quod
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/transactions/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the transaction.'
-        required: true
-        example: 19
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      id: 19
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - PUT
-      - PATCH
-    uri: 'api/transactions/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the transaction.'
-        required: true
-        example: 7
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      id: 7
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      transaction_date:
-        name: transaction_date
-        description: 'Must be a valid date.'
-        required: true
-        example: '2024-05-18T10:38:36'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      event_id:
-        name: event_id
-        description: ''
-        required: true
-        example: quibusdam
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      ticket_id:
-        name: ticket_id
-        description: ''
-        required: true
-        example: omnis
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      price:
-        name: price
-        description: ''
-        required: true
-        example: 64.404
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      quantity:
-        name: quantity
-        description: ''
-        required: true
-        example: 18
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      buyer_name:
-        name: buyer_name
-        description: ''
-        required: true
-        example: nostrum
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      buyer_email:
-        name: buyer_email
-        description: 'Must be a valid email address.'
-        required: true
-        example: reinhold.dare@example.com
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      buyer_phone:
-        name: buyer_phone
-        description: ''
-        required: true
-        example: et
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanBodyParameters:
-      transaction_date: '2024-05-18T10:38:36'
-      event_id: quibusdam
-      ticket_id: omnis
-      price: 64.404
-      quantity: 18
-      buyer_name: nostrum
-      buyer_email: reinhold.dare@example.com
-      buyer_phone: et
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - DELETE
-    uri: 'api/transactions/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the transaction.'
-        required: true
-        example: 5
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      id: 5
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
     responseFields: []
     auth: []
     controller: null

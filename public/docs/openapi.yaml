@@ -7,48 +7,82 @@ servers:
   -
     url: 'http://localhost:8000'
 paths:
-  /api/login:
-    post:
-      summary: 'Handle an incoming authentication request.'
-      operationId: handleAnIncomingAuthenticationRequest
+  /api/dashboard:
+    get:
+      summary: ''
+      operationId: getApiDashboard
       description: ''
       parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                email:
-                  type: string
-                  description: 'Must be a valid email address.'
-                  example: jones.lelia@example.org
-                password:
-                  type: string
-                  description: ''
-                  example: 55C5CS^y
-              required:
-                - email
-                - password
-      security: []
-  /api/logout:
-    post:
-      summary: 'Destroy an authenticated session.'
-      operationId: destroyAnAuthenticatedSession
-      description: ''
-      parameters: []
-      responses: {  }
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
       tags:
         - Endpoints
       security: []
-  /api/register:
+  /api/user:
+    get:
+      summary: ''
+      operationId: getApiUser
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: ''
+      tags:
+        - Endpoints
+      security: []
+  /api/events:
+    get:
+      summary: ''
+      operationId: getApiEvents
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    name: ipsam
+                    location: suscipit
+                    province: omnis
+                    category: dolores
+                    description: tempore
+                    information: et
+                    image: cupiditate
+                    start_time: '2024-05-18 14:31:28'
+                    end_time: '2024-05-18 14:31:28'
+                    created_at: '2024-05-18T14:34:03.000000Z'
+                    updated_at: '2024-05-18T14:34:03.000000Z'
+                    created_by: null
+                    updated_by: null
+      tags:
+        - Endpoints
+      security: []
     post:
-      summary: 'Handle an incoming registration request.'
-      operationId: handleAnIncomingRegistrationRequest
+      summary: ''
+      operationId: postApiEvents
       description: ''
       parameters: []
       responses: {  }
@@ -63,25 +97,128 @@ paths:
               properties:
                 name:
                   type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: digaf
-                email:
-                  type: string
-                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: eda.weimann@example.org
-                password:
+                  description: ''
+                  example: nam
+                location:
                   type: string
                   description: ''
-                  example: labore
+                  example: saepe
+                province:
+                  type: string
+                  description: ''
+                  example: quis
+                category:
+                  type: string
+                  description: ''
+                  example: tenetur
+                description:
+                  type: string
+                  description: ''
+                  example: voluptas
+                information:
+                  type: string
+                  description: ''
+                  example: repudiandae
+                image:
+                  type: string
+                  description: ''
+                  example: veniam
+                start_time:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2024-05-18T14:39:47'
+                end_time:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2024-05-18T14:39:47'
               required:
                 - name
-                - email
-                - password
+                - location
+                - province
+                - category
+                - description
+                - information
+                - image
+                - start_time
+                - end_time
       security: []
-  /api/reset-password:
-    post:
-      summary: 'Handle an incoming new password request.'
-      operationId: handleAnIncomingNewPasswordRequest
+  '/api/events/{id}':
+    get:
+      summary: ''
+      operationId: getApiEventsId
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  name: ipsam
+                  location: suscipit
+                  province: omnis
+                  category: dolores
+                  description: tempore
+                  information: et
+                  image: cupiditate
+                  start_time: '2024-05-18 14:31:28'
+                  end_time: '2024-05-18 14:31:28'
+                  created_at: '2024-05-18T14:34:03.000000Z'
+                  updated_at: '2024-05-18T14:34:03.000000Z'
+                  created_by: null
+                  updated_by: null
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  name:
+                    type: string
+                    example: ipsam
+                  location:
+                    type: string
+                    example: suscipit
+                  province:
+                    type: string
+                    example: omnis
+                  category:
+                    type: string
+                    example: dolores
+                  description:
+                    type: string
+                    example: tempore
+                  information:
+                    type: string
+                    example: et
+                  image:
+                    type: string
+                    example: cupiditate
+                  start_time:
+                    type: string
+                    example: '2024-05-18 14:31:28'
+                  end_time:
+                    type: string
+                    example: '2024-05-18 14:31:28'
+                  created_at:
+                    type: string
+                    example: '2024-05-18T14:34:03.000000Z'
+                  updated_at:
+                    type: string
+                    example: '2024-05-18T14:34:03.000000Z'
+                  created_by:
+                    type: string
+                    example: null
+                  updated_by:
+                    type: string
+                    example: null
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: ''
+      operationId: putApiEventsId
       description: ''
       parameters: []
       responses: {  }
@@ -94,1024 +231,59 @@ paths:
             schema:
               type: object
               properties:
-                token:
+                name:
                   type: string
                   description: ''
-                  example: vero
-                email:
-                  type: string
-                  description: 'Must be a valid email address.'
-                  example: ueffertz@example.net
-                password:
+                  example: vitae
+                location:
                   type: string
                   description: ''
-                  example: vel
+                  example: alias
+                province:
+                  type: string
+                  description: ''
+                  example: dolor
+                category:
+                  type: string
+                  description: ''
+                  example: aut
+                description:
+                  type: string
+                  description: ''
+                  example: rem
+                information:
+                  type: string
+                  description: ''
+                  example: ducimus
+                image:
+                  type: string
+                  description: ''
+                  example: dignissimos
+                start_time:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2024-05-18T14:39:47'
+                end_time:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2024-05-18T14:39:47'
               required:
-                - token
-                - email
-                - password
+                - name
+                - location
+                - province
+                - category
+                - description
+                - information
+                - image
+                - start_time
+                - end_time
       security: []
-  '/api/verify-email/{id}/{hash}':
-    get:
-      summary: "Mark the authenticated user's email address as verified."
-      operationId: markTheAuthenticatedUsersEmailAddressAsVerified
+    delete:
+      summary: ''
+      operationId: deleteApiEventsId
       description: ''
       parameters: []
-      responses:
-        500:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'Call to a member function getKey() on null'
-                  exception: Error
-                  file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Auth/EmailVerificationRequest.php
-                  line: 18
-                  trace:
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php
-                      line: 36
-                      function: authorize
-                      class: Illuminate\Foundation\Auth\EmailVerificationRequest
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Util.php
-                      line: 41
-                      function: 'Illuminate\Container\{closure}'
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php
-                      line: 93
-                      function: unwrapIfClosure
-                      class: Illuminate\Container\Util
-                      type: '::'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php
-                      line: 37
-                      function: callBoundMethod
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Container.php
-                      line: 662
-                      function: call
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/FormRequest.php
-                      line: 203
-                      function: call
-                      class: Illuminate\Container\Container
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Validation/ValidatesWhenResolvedTrait.php
-                      line: 21
-                      function: passesAuthorization
-                      class: Illuminate\Foundation\Http\FormRequest
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Providers/FormRequestServiceProvider.php
-                      line: 30
-                      function: validateResolved
-                      class: Illuminate\Foundation\Http\FormRequest
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Container.php
-                      line: 1302
-                      function: 'Illuminate\Foundation\Providers\{closure}'
-                      class: Illuminate\Foundation\Providers\FormRequestServiceProvider
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Container.php
-                      line: 1267
-                      function: fireCallbackArray
-                      class: Illuminate\Container\Container
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Container.php
-                      line: 1252
-                      function: fireAfterResolvingCallbacks
-                      class: Illuminate\Container\Container
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Container.php
-                      line: 813
-                      function: fireResolvingCallbacks
-                      class: Illuminate\Container\Container
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Application.php
-                      line: 961
-                      function: resolve
-                      class: Illuminate\Container\Container
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Container.php
-                      line: 731
-                      function: resolve
-                      class: Illuminate\Foundation\Application
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Application.php
-                      line: 946
-                      function: make
-                      class: Illuminate\Container\Container
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/ResolvesRouteDependencies.php
-                      line: 85
-                      function: make
-                      class: Illuminate\Foundation\Application
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/ResolvesRouteDependencies.php
-                      line: 50
-                      function: transformDependency
-                      class: Illuminate\Routing\ControllerDispatcher
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/ResolvesRouteDependencies.php
-                      line: 30
-                      function: resolveMethodDependencies
-                      class: Illuminate\Routing\ControllerDispatcher
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php
-                      line: 60
-                      function: resolveClassMethodDependencies
-                      class: Illuminate\Routing\ControllerDispatcher
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php
-                      line: 40
-                      function: resolveParameters
-                      class: Illuminate\Routing\ControllerDispatcher
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Route.php
-                      line: 260
-                      function: dispatch
-                      class: Illuminate\Routing\ControllerDispatcher
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Route.php
-                      line: 205
-                      function: runController
-                      class: Illuminate\Routing\Route
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Router.php
-                      line: 806
-                      function: run
-                      class: Illuminate\Routing\Route
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                      line: 144
-                      function: 'Illuminate\Routing\{closure}'
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php
-                      line: 50
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                      line: 183
-                      function: handle
-                      class: Illuminate\Routing\Middleware\SubstituteBindings
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php
-                      line: 159
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php
-                      line: 135
-                      function: handleRequest
-                      class: Illuminate\Routing\Middleware\ThrottleRequests
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php
-                      line: 87
-                      function: handleRequestUsingNamedLimiter
-                      class: Illuminate\Routing\Middleware\ThrottleRequests
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                      line: 183
-                      function: handle
-                      class: Illuminate\Routing\Middleware\ThrottleRequests
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                      line: 119
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Router.php
-                      line: 807
-                      function: then
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Router.php
-                      line: 784
-                      function: runRouteWithinStack
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Router.php
-                      line: 748
-                      function: runRoute
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Router.php
-                      line: 737
-                      function: dispatchToRoute
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php
-                      line: 200
-                      function: dispatch
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                      line: 144
-                      function: 'Illuminate\Foundation\Http\{closure}'
-                      class: Illuminate\Foundation\Http\Kernel
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php
-                      line: 21
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php
-                      line: 31
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                      line: 183
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php
-                      line: 21
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php
-                      line: 40
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                      line: 183
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\TrimStrings
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php
-                      line: 27
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                      line: 183
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php
-                      line: 99
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                      line: 183
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php
-                      line: 62
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                      line: 183
-                      function: handle
-                      class: Illuminate\Http\Middleware\HandleCors
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php
-                      line: 39
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                      line: 183
-                      function: handle
-                      class: Illuminate\Http\Middleware\TrustProxies
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                      line: 119
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php
-                      line: 175
-                      function: then
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php
-                      line: 144
-                      function: sendRequestThroughRouter
-                      class: Illuminate\Foundation\Http\Kernel
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                      line: 300
-                      function: handle
-                      class: Illuminate\Foundation\Http\Kernel
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                      line: 288
-                      function: callLaravelOrLumenRoute
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                      line: 91
-                      function: makeApiCall
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                      line: 44
-                      function: makeResponseCall
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                      line: 35
-                      function: makeResponseCallIfConditionsPass
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
-                      line: 236
-                      function: __invoke
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
-                      line: 166
-                      function: iterateThroughStrategies
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
-                      line: 95
-                      function: fetchResponses
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
-                      line: 125
-                      function: processRoute
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
-                      line: 72
-                      function: extractEndpointsInfoFromLaravelApp
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
-                      line: 50
-                      function: extractEndpointsInfoAndWriteToDisk
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php
-                      line: 53
-                      function: get
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php
-                      line: 36
-                      function: handle
-                      class: Knuckles\Scribe\Commands\GenerateDocumentation
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Util.php
-                      line: 41
-                      function: 'Illuminate\Container\{closure}'
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php
-                      line: 93
-                      function: unwrapIfClosure
-                      class: Illuminate\Container\Util
-                      type: '::'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php
-                      line: 37
-                      function: callBoundMethod
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Container.php
-                      line: 662
-                      function: call
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Console/Command.php
-                      line: 211
-                      function: call
-                      class: Illuminate\Container\Container
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/symfony/console/Command/Command.php
-                      line: 326
-                      function: execute
-                      class: Illuminate\Console\Command
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Console/Command.php
-                      line: 181
-                      function: run
-                      class: Symfony\Component\Console\Command\Command
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/symfony/console/Application.php
-                      line: 1096
-                      function: run
-                      class: Illuminate\Console\Command
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/symfony/console/Application.php
-                      line: 324
-                      function: doRunCommand
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/symfony/console/Application.php
-                      line: 175
-                      function: doRun
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php
-                      line: 201
-                      function: run
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: /home/inyourash/pribadi/ticketing-systems/artisan
-                      line: 37
-                      function: handle
-                      class: Illuminate\Foundation\Console\Kernel
-                      type: '->'
-                properties:
-                  message:
-                    type: string
-                    example: 'Call to a member function getKey() on null'
-                  exception:
-                    type: string
-                    example: Error
-                  file:
-                    type: string
-                    example: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Auth/EmailVerificationRequest.php
-                  line:
-                    type: integer
-                    example: 18
-                  trace:
-                    type: array
-                    example:
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php
-                        line: 36
-                        function: authorize
-                        class: Illuminate\Foundation\Auth\EmailVerificationRequest
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Util.php
-                        line: 41
-                        function: 'Illuminate\Container\{closure}'
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php
-                        line: 93
-                        function: unwrapIfClosure
-                        class: Illuminate\Container\Util
-                        type: '::'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php
-                        line: 37
-                        function: callBoundMethod
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Container.php
-                        line: 662
-                        function: call
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/FormRequest.php
-                        line: 203
-                        function: call
-                        class: Illuminate\Container\Container
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Validation/ValidatesWhenResolvedTrait.php
-                        line: 21
-                        function: passesAuthorization
-                        class: Illuminate\Foundation\Http\FormRequest
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Providers/FormRequestServiceProvider.php
-                        line: 30
-                        function: validateResolved
-                        class: Illuminate\Foundation\Http\FormRequest
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Container.php
-                        line: 1302
-                        function: 'Illuminate\Foundation\Providers\{closure}'
-                        class: Illuminate\Foundation\Providers\FormRequestServiceProvider
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Container.php
-                        line: 1267
-                        function: fireCallbackArray
-                        class: Illuminate\Container\Container
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Container.php
-                        line: 1252
-                        function: fireAfterResolvingCallbacks
-                        class: Illuminate\Container\Container
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Container.php
-                        line: 813
-                        function: fireResolvingCallbacks
-                        class: Illuminate\Container\Container
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Application.php
-                        line: 961
-                        function: resolve
-                        class: Illuminate\Container\Container
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Container.php
-                        line: 731
-                        function: resolve
-                        class: Illuminate\Foundation\Application
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Application.php
-                        line: 946
-                        function: make
-                        class: Illuminate\Container\Container
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/ResolvesRouteDependencies.php
-                        line: 85
-                        function: make
-                        class: Illuminate\Foundation\Application
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/ResolvesRouteDependencies.php
-                        line: 50
-                        function: transformDependency
-                        class: Illuminate\Routing\ControllerDispatcher
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/ResolvesRouteDependencies.php
-                        line: 30
-                        function: resolveMethodDependencies
-                        class: Illuminate\Routing\ControllerDispatcher
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php
-                        line: 60
-                        function: resolveClassMethodDependencies
-                        class: Illuminate\Routing\ControllerDispatcher
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php
-                        line: 40
-                        function: resolveParameters
-                        class: Illuminate\Routing\ControllerDispatcher
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Route.php
-                        line: 260
-                        function: dispatch
-                        class: Illuminate\Routing\ControllerDispatcher
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Route.php
-                        line: 205
-                        function: runController
-                        class: Illuminate\Routing\Route
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Router.php
-                        line: 806
-                        function: run
-                        class: Illuminate\Routing\Route
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                        line: 144
-                        function: 'Illuminate\Routing\{closure}'
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php
-                        line: 50
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                        line: 183
-                        function: handle
-                        class: Illuminate\Routing\Middleware\SubstituteBindings
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php
-                        line: 159
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php
-                        line: 135
-                        function: handleRequest
-                        class: Illuminate\Routing\Middleware\ThrottleRequests
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php
-                        line: 87
-                        function: handleRequestUsingNamedLimiter
-                        class: Illuminate\Routing\Middleware\ThrottleRequests
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                        line: 183
-                        function: handle
-                        class: Illuminate\Routing\Middleware\ThrottleRequests
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                        line: 119
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Router.php
-                        line: 807
-                        function: then
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Router.php
-                        line: 784
-                        function: runRouteWithinStack
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Router.php
-                        line: 748
-                        function: runRoute
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Router.php
-                        line: 737
-                        function: dispatchToRoute
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php
-                        line: 200
-                        function: dispatch
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                        line: 144
-                        function: 'Illuminate\Foundation\Http\{closure}'
-                        class: Illuminate\Foundation\Http\Kernel
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php
-                        line: 21
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php
-                        line: 31
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                        line: 183
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php
-                        line: 21
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php
-                        line: 40
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                        line: 183
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\TrimStrings
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php
-                        line: 27
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                        line: 183
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php
-                        line: 99
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                        line: 183
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php
-                        line: 62
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                        line: 183
-                        function: handle
-                        class: Illuminate\Http\Middleware\HandleCors
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php
-                        line: 39
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                        line: 183
-                        function: handle
-                        class: Illuminate\Http\Middleware\TrustProxies
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                        line: 119
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php
-                        line: 175
-                        function: then
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php
-                        line: 144
-                        function: sendRequestThroughRouter
-                        class: Illuminate\Foundation\Http\Kernel
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                        line: 300
-                        function: handle
-                        class: Illuminate\Foundation\Http\Kernel
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                        line: 288
-                        function: callLaravelOrLumenRoute
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                        line: 91
-                        function: makeApiCall
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                        line: 44
-                        function: makeResponseCall
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                        line: 35
-                        function: makeResponseCallIfConditionsPass
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
-                        line: 236
-                        function: __invoke
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
-                        line: 166
-                        function: iterateThroughStrategies
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
-                        line: 95
-                        function: fetchResponses
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
-                        line: 125
-                        function: processRoute
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
-                        line: 72
-                        function: extractEndpointsInfoFromLaravelApp
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
-                        line: 50
-                        function: extractEndpointsInfoAndWriteToDisk
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php
-                        line: 53
-                        function: get
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php
-                        line: 36
-                        function: handle
-                        class: Knuckles\Scribe\Commands\GenerateDocumentation
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Util.php
-                        line: 41
-                        function: 'Illuminate\Container\{closure}'
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php
-                        line: 93
-                        function: unwrapIfClosure
-                        class: Illuminate\Container\Util
-                        type: '::'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php
-                        line: 37
-                        function: callBoundMethod
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/Container.php
-                        line: 662
-                        function: call
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Console/Command.php
-                        line: 211
-                        function: call
-                        class: Illuminate\Container\Container
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/symfony/console/Command/Command.php
-                        line: 326
-                        function: execute
-                        class: Illuminate\Console\Command
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Console/Command.php
-                        line: 181
-                        function: run
-                        class: Symfony\Component\Console\Command\Command
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/symfony/console/Application.php
-                        line: 1096
-                        function: run
-                        class: Illuminate\Console\Command
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/symfony/console/Application.php
-                        line: 324
-                        function: doRunCommand
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/symfony/console/Application.php
-                        line: 175
-                        function: doRun
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php
-                        line: 201
-                        function: run
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: /home/inyourash/pribadi/ticketing-systems/artisan
-                        line: 37
-                        function: handle
-                        class: Illuminate\Foundation\Console\Kernel
-                        type: '->'
-                    items:
-                      type: object
-                      properties:
-                        file:
-                          type: string
-                          example: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php
-                        line:
-                          type: integer
-                          example: 36
-                        function:
-                          type: string
-                          example: authorize
-                        class:
-                          type: string
-                          example: Illuminate\Foundation\Auth\EmailVerificationRequest
-                        type:
-                          type: string
-                          example: '->'
+      responses: {  }
       tags:
         - Endpoints
       security: []
@@ -1119,23 +291,593 @@ paths:
       -
         in: path
         name: id
-        description: 'The ID of the verify email.'
-        example: porro
+        description: 'The ID of the event.'
+        example: 1
         required: true
         schema:
-          type: string
+          type: integer
+  /api/tickets:
+    get:
+      summary: ''
+      operationId: getApiTickets
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    event_id: 1
+                    name: incidunt
+                    price: '1834.23'
+                    quota: 1
+                    description: null
+                    max_purchase: 17
+                    created_at: '2024-05-18T14:34:35.000000Z'
+                    updated_at: '2024-05-18T14:34:35.000000Z'
+                    created_by: null
+                    updated_by: null
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiTickets
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                event_id:
+                  type: string
+                  description: ''
+                  example: beatae
+                name:
+                  type: string
+                  description: ''
+                  example: aliquid
+                price:
+                  type: number
+                  description: ''
+                  example: 214021.3
+                quota:
+                  type: integer
+                  description: ''
+                  example: 8
+                description:
+                  type: string
+                  description: ''
+                  example: null
+                max_purchase:
+                  type: integer
+                  description: ''
+                  example: 13
+              required:
+                - event_id
+                - name
+                - price
+                - quota
+                - max_purchase
+      security: []
+  '/api/tickets/{id}':
+    get:
+      summary: ''
+      operationId: getApiTicketsId
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  event_id: 1
+                  name: incidunt
+                  price: '1834.23'
+                  quota: 1
+                  description: null
+                  max_purchase: 17
+                  created_at: '2024-05-18T14:34:35.000000Z'
+                  updated_at: '2024-05-18T14:34:35.000000Z'
+                  created_by: null
+                  updated_by: null
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  event_id:
+                    type: integer
+                    example: 1
+                  name:
+                    type: string
+                    example: incidunt
+                  price:
+                    type: string
+                    example: '1834.23'
+                  quota:
+                    type: integer
+                    example: 1
+                  description:
+                    type: string
+                    example: null
+                  max_purchase:
+                    type: integer
+                    example: 17
+                  created_at:
+                    type: string
+                    example: '2024-05-18T14:34:35.000000Z'
+                  updated_at:
+                    type: string
+                    example: '2024-05-18T14:34:35.000000Z'
+                  created_by:
+                    type: string
+                    example: null
+                  updated_by:
+                    type: string
+                    example: null
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: ''
+      operationId: putApiTicketsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                event_id:
+                  type: string
+                  description: ''
+                  example: similique
+                name:
+                  type: string
+                  description: ''
+                  example: aperiam
+                price:
+                  type: number
+                  description: ''
+                  example: 717883.59521954
+                quota:
+                  type: integer
+                  description: ''
+                  example: 2
+                description:
+                  type: string
+                  description: ''
+                  example: null
+                max_purchase:
+                  type: integer
+                  description: ''
+                  example: 14
+              required:
+                - event_id
+                - name
+                - price
+                - quota
+                - max_purchase
+      security: []
+    delete:
+      summary: ''
+      operationId: deleteApiTicketsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
       -
         in: path
-        name: hash
-        description: ''
-        example: accusantium
+        name: id
+        description: 'The ID of the ticket.'
+        example: 1
         required: true
         schema:
-          type: string
-  /api/verify-email:
+          type: integer
+  /api/transactions:
     get:
-      summary: 'Display the email verification prompt.'
-      operationId: displayTheEmailVerificationPrompt
+      summary: ''
+      operationId: getApiTransactions
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    transaction_date: '2024-05-18 14:31:29'
+                    event_id: 1
+                    ticket_id: 1
+                    price: '57280.99'
+                    quantity: 5
+                    total: '286404.94'
+                    buyer_name: saepe
+                    buyer_email: colin02@example.com
+                    buyer_phone: possimus
+                    created_at: '2024-05-18T14:35:34.000000Z'
+                    updated_at: '2024-05-18T14:35:34.000000Z'
+                    created_by: null
+                    updated_by: null
+                    event:
+                      id: 1
+                      name: ipsam
+                      location: suscipit
+                      province: omnis
+                      category: dolores
+                      description: tempore
+                      information: et
+                      image: cupiditate
+                      start_time: '2024-05-18 14:31:28'
+                      end_time: '2024-05-18 14:31:28'
+                      created_at: '2024-05-18T14:34:03.000000Z'
+                      updated_at: '2024-05-18T14:34:03.000000Z'
+                      created_by: null
+                      updated_by: null
+                    ticket:
+                      id: 1
+                      event_id: 1
+                      name: incidunt
+                      price: '1834.23'
+                      quota: 1
+                      description: null
+                      max_purchase: 17
+                      created_at: '2024-05-18T14:34:35.000000Z'
+                      updated_at: '2024-05-18T14:34:35.000000Z'
+                      created_by: null
+                      updated_by: null
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiTransactions
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                transaction_date:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2024-05-18T14:39:47'
+                event_id:
+                  type: string
+                  description: ''
+                  example: dolorem
+                ticket_id:
+                  type: string
+                  description: ''
+                  example: unde
+                price:
+                  type: number
+                  description: ''
+                  example: 2818.253
+                quantity:
+                  type: integer
+                  description: ''
+                  example: 1
+                buyer_name:
+                  type: string
+                  description: ''
+                  example: non
+                buyer_email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: fahey.jordyn@example.com
+                buyer_phone:
+                  type: string
+                  description: ''
+                  example: earum
+              required:
+                - transaction_date
+                - event_id
+                - ticket_id
+                - price
+                - quantity
+                - buyer_name
+                - buyer_email
+                - buyer_phone
+      security: []
+  '/api/transactions/{id}':
+    get:
+      summary: ''
+      operationId: getApiTransactionsId
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  transaction_date: '2024-05-18 14:31:29'
+                  event_id: 1
+                  ticket_id: 1
+                  price: '57280.99'
+                  quantity: 5
+                  total: '286404.94'
+                  buyer_name: saepe
+                  buyer_email: colin02@example.com
+                  buyer_phone: possimus
+                  created_at: '2024-05-18T14:35:34.000000Z'
+                  updated_at: '2024-05-18T14:35:34.000000Z'
+                  created_by: null
+                  updated_by: null
+                  event:
+                    id: 1
+                    name: ipsam
+                    location: suscipit
+                    province: omnis
+                    category: dolores
+                    description: tempore
+                    information: et
+                    image: cupiditate
+                    start_time: '2024-05-18 14:31:28'
+                    end_time: '2024-05-18 14:31:28'
+                    created_at: '2024-05-18T14:34:03.000000Z'
+                    updated_at: '2024-05-18T14:34:03.000000Z'
+                    created_by: null
+                    updated_by: null
+                  ticket:
+                    id: 1
+                    event_id: 1
+                    name: incidunt
+                    price: '1834.23'
+                    quota: 1
+                    description: null
+                    max_purchase: 17
+                    created_at: '2024-05-18T14:34:35.000000Z'
+                    updated_at: '2024-05-18T14:34:35.000000Z'
+                    created_by: null
+                    updated_by: null
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  transaction_date:
+                    type: string
+                    example: '2024-05-18 14:31:29'
+                  event_id:
+                    type: integer
+                    example: 1
+                  ticket_id:
+                    type: integer
+                    example: 1
+                  price:
+                    type: string
+                    example: '57280.99'
+                  quantity:
+                    type: integer
+                    example: 5
+                  total:
+                    type: string
+                    example: '286404.94'
+                  buyer_name:
+                    type: string
+                    example: saepe
+                  buyer_email:
+                    type: string
+                    example: colin02@example.com
+                  buyer_phone:
+                    type: string
+                    example: possimus
+                  created_at:
+                    type: string
+                    example: '2024-05-18T14:35:34.000000Z'
+                  updated_at:
+                    type: string
+                    example: '2024-05-18T14:35:34.000000Z'
+                  created_by:
+                    type: string
+                    example: null
+                  updated_by:
+                    type: string
+                    example: null
+                  event:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: ipsam
+                      location:
+                        type: string
+                        example: suscipit
+                      province:
+                        type: string
+                        example: omnis
+                      category:
+                        type: string
+                        example: dolores
+                      description:
+                        type: string
+                        example: tempore
+                      information:
+                        type: string
+                        example: et
+                      image:
+                        type: string
+                        example: cupiditate
+                      start_time:
+                        type: string
+                        example: '2024-05-18 14:31:28'
+                      end_time:
+                        type: string
+                        example: '2024-05-18 14:31:28'
+                      created_at:
+                        type: string
+                        example: '2024-05-18T14:34:03.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2024-05-18T14:34:03.000000Z'
+                      created_by:
+                        type: string
+                        example: null
+                      updated_by:
+                        type: string
+                        example: null
+                  ticket:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      event_id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: incidunt
+                      price:
+                        type: string
+                        example: '1834.23'
+                      quota:
+                        type: integer
+                        example: 1
+                      description:
+                        type: string
+                        example: null
+                      max_purchase:
+                        type: integer
+                        example: 17
+                      created_at:
+                        type: string
+                        example: '2024-05-18T14:34:35.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2024-05-18T14:34:35.000000Z'
+                      created_by:
+                        type: string
+                        example: null
+                      updated_by:
+                        type: string
+                        example: null
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: ''
+      operationId: putApiTransactionsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                transaction_date:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2024-05-18T14:39:47'
+                event_id:
+                  type: string
+                  description: ''
+                  example: sit
+                ticket_id:
+                  type: string
+                  description: ''
+                  example: dolorum
+                price:
+                  type: number
+                  description: ''
+                  example: 669.7
+                quantity:
+                  type: integer
+                  description: ''
+                  example: 15
+                buyer_name:
+                  type: string
+                  description: ''
+                  example: exercitationem
+                buyer_email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: hilpert.eryn@example.org
+                buyer_phone:
+                  type: string
+                  description: ''
+                  example: facere
+              required:
+                - transaction_date
+                - event_id
+                - ticket_id
+                - price
+                - quantity
+                - buyer_name
+                - buyer_email
+                - buyer_phone
+      security: []
+    delete:
+      summary: ''
+      operationId: deleteApiTransactionsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the transaction.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/purchase/reports:
+    get:
+      summary: ''
+      operationId: getApiPurchaseReports
       description: ''
       parameters: []
       responses:
@@ -1146,16 +888,58 @@ paths:
               schema:
                 type: object
                 example:
-                  message: 'Call to a member function hasVerifiedEmail() on null'
-                  exception: Error
-                  file: /home/inyourash/pribadi/ticketing-systems/app/Http/Controllers/Auth/EmailVerificationPromptController.php
-                  line: 18
+                  message: 'Call to undefined relationship [buyer] on model [App\Models\Transaction].'
+                  exception: Illuminate\Database\Eloquent\RelationNotFoundException
+                  file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Database/Eloquent/RelationNotFoundException.php
+                  line: 35
                   trace:
+                    -
+                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php
+                      line: 806
+                      function: make
+                      class: Illuminate\Database\Eloquent\RelationNotFoundException
+                      type: '::'
+                    -
+                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/Relation.php
+                      line: 110
+                      function: 'Illuminate\Database\Eloquent\{closure}'
+                      class: Illuminate\Database\Eloquent\Builder
+                      type: '->'
+                    -
+                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php
+                      line: 808
+                      function: noConstraints
+                      class: Illuminate\Database\Eloquent\Relations\Relation
+                      type: '::'
+                    -
+                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php
+                      line: 776
+                      function: getRelation
+                      class: Illuminate\Database\Eloquent\Builder
+                      type: '->'
+                    -
+                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php
+                      line: 756
+                      function: eagerLoadRelation
+                      class: Illuminate\Database\Eloquent\Builder
+                      type: '->'
+                    -
+                      file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php
+                      line: 724
+                      function: eagerLoadRelations
+                      class: Illuminate\Database\Eloquent\Builder
+                      type: '->'
+                    -
+                      file: /home/inyourash/pribadi/ticketing-systems/app/Http/Controllers/PurchaseReportController.php
+                      line: 35
+                      function: get
+                      class: Illuminate\Database\Eloquent\Builder
+                      type: '->'
                     -
                       file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Controller.php
                       line: 54
-                      function: __invoke
-                      class: App\Http\Controllers\Auth\EmailVerificationPromptController
+                      function: index
+                      class: App\Http\Controllers\PurchaseReportController
                       type: '->'
                     -
                       file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php
@@ -1520,24 +1304,66 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: 'Call to a member function hasVerifiedEmail() on null'
+                    example: 'Call to undefined relationship [buyer] on model [App\Models\Transaction].'
                   exception:
                     type: string
-                    example: Error
+                    example: Illuminate\Database\Eloquent\RelationNotFoundException
                   file:
                     type: string
-                    example: /home/inyourash/pribadi/ticketing-systems/app/Http/Controllers/Auth/EmailVerificationPromptController.php
+                    example: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Database/Eloquent/RelationNotFoundException.php
                   line:
                     type: integer
-                    example: 18
+                    example: 35
                   trace:
                     type: array
                     example:
                       -
+                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php
+                        line: 806
+                        function: make
+                        class: Illuminate\Database\Eloquent\RelationNotFoundException
+                        type: '::'
+                      -
+                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/Relation.php
+                        line: 110
+                        function: 'Illuminate\Database\Eloquent\{closure}'
+                        class: Illuminate\Database\Eloquent\Builder
+                        type: '->'
+                      -
+                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php
+                        line: 808
+                        function: noConstraints
+                        class: Illuminate\Database\Eloquent\Relations\Relation
+                        type: '::'
+                      -
+                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php
+                        line: 776
+                        function: getRelation
+                        class: Illuminate\Database\Eloquent\Builder
+                        type: '->'
+                      -
+                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php
+                        line: 756
+                        function: eagerLoadRelation
+                        class: Illuminate\Database\Eloquent\Builder
+                        type: '->'
+                      -
+                        file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php
+                        line: 724
+                        function: eagerLoadRelations
+                        class: Illuminate\Database\Eloquent\Builder
+                        type: '->'
+                      -
+                        file: /home/inyourash/pribadi/ticketing-systems/app/Http/Controllers/PurchaseReportController.php
+                        line: 35
+                        function: get
+                        class: Illuminate\Database\Eloquent\Builder
+                        type: '->'
+                      -
                         file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Controller.php
                         line: 54
-                        function: __invoke
-                        class: App\Http\Controllers\Auth\EmailVerificationPromptController
+                        function: index
+                        class: App\Http\Controllers\PurchaseReportController
                         type: '->'
                       -
                         file: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php
@@ -1904,591 +1730,22 @@ paths:
                       properties:
                         file:
                           type: string
-                          example: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Routing/Controller.php
+                          example: /home/inyourash/pribadi/ticketing-systems/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php
                         line:
                           type: integer
-                          example: 54
+                          example: 806
                         function:
                           type: string
-                          example: __invoke
+                          example: make
                         class:
                           type: string
-                          example: App\Http\Controllers\Auth\EmailVerificationPromptController
+                          example: Illuminate\Database\Eloquent\RelationNotFoundException
                         type:
                           type: string
-                          example: '->'
+                          example: '::'
       tags:
         - Endpoints
       security: []
-    post:
-      summary: 'Send a new email verification notification.'
-      operationId: sendANewEmailVerificationNotification
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
-      security: []
-  /api/dashboard:
-    get:
-      summary: ''
-      operationId: getApiDashboard
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      security: []
-  /api/user:
-    get:
-      summary: ''
-      operationId: getApiUser
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      security: []
-  /api/events:
-    get:
-      summary: ''
-      operationId: getApiEvents
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      security: []
-    post:
-      summary: ''
-      operationId: postApiEvents
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: ''
-                  example: velit
-                location:
-                  type: string
-                  description: ''
-                  example: qui
-                province:
-                  type: string
-                  description: ''
-                  example: earum
-                category:
-                  type: string
-                  description: ''
-                  example: ipsum
-                description:
-                  type: string
-                  description: ''
-                  example: doloremque
-                information:
-                  type: string
-                  description: ''
-                  example: recusandae
-                image:
-                  type: string
-                  description: ''
-                  example: aspernatur
-                start_time:
-                  type: string
-                  description: 'Must be a valid date.'
-                  example: '2024-05-18T10:38:36'
-                end_time:
-                  type: string
-                  description: 'Must be a valid date.'
-                  example: '2024-05-18T10:38:36'
-              required:
-                - name
-                - location
-                - province
-                - category
-                - description
-                - information
-                - image
-                - start_time
-                - end_time
-      security: []
-  '/api/events/{id}':
-    get:
-      summary: ''
-      operationId: getApiEventsId
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      security: []
-    put:
-      summary: ''
-      operationId: putApiEventsId
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: ''
-                  example: ut
-                location:
-                  type: string
-                  description: ''
-                  example: facilis
-                province:
-                  type: string
-                  description: ''
-                  example: accusamus
-                category:
-                  type: string
-                  description: ''
-                  example: assumenda
-                description:
-                  type: string
-                  description: ''
-                  example: esse
-                information:
-                  type: string
-                  description: ''
-                  example: ad
-                image:
-                  type: string
-                  description: ''
-                  example: est
-                start_time:
-                  type: string
-                  description: 'Must be a valid date.'
-                  example: '2024-05-18T10:38:36'
-                end_time:
-                  type: string
-                  description: 'Must be a valid date.'
-                  example: '2024-05-18T10:38:36'
-              required:
-                - name
-                - location
-                - province
-                - category
-                - description
-                - information
-                - image
-                - start_time
-                - end_time
-      security: []
-    delete:
-      summary: ''
-      operationId: deleteApiEventsId
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
-      security: []
-    parameters:
-      -
-        in: path
-        name: id
-        description: 'The ID of the event.'
-        example: 17
-        required: true
-        schema:
-          type: integer
-  /api/tickets:
-    get:
-      summary: ''
-      operationId: getApiTickets
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      security: []
-    post:
-      summary: ''
-      operationId: postApiTickets
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                event_id:
-                  type: string
-                  description: ''
-                  example: modi
-                name:
-                  type: string
-                  description: ''
-                  example: quod
-                price:
-                  type: number
-                  description: ''
-                  example: 27.8802
-                quota:
-                  type: integer
-                  description: ''
-                  example: 9
-                description:
-                  type: string
-                  description: ''
-                  example: null
-                max_purchase:
-                  type: integer
-                  description: ''
-                  example: 4
-              required:
-                - event_id
-                - name
-                - price
-                - quota
-                - max_purchase
-      security: []
-  '/api/tickets/{id}':
-    get:
-      summary: ''
-      operationId: getApiTicketsId
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      security: []
-    put:
-      summary: ''
-      operationId: putApiTicketsId
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                event_id:
-                  type: string
-                  description: ''
-                  example: et
-                name:
-                  type: string
-                  description: ''
-                  example: quidem
-                price:
-                  type: number
-                  description: ''
-                  example: 1713496.1909125
-                quota:
-                  type: integer
-                  description: ''
-                  example: 19
-                description:
-                  type: string
-                  description: ''
-                  example: null
-                max_purchase:
-                  type: integer
-                  description: ''
-                  example: 4
-              required:
-                - event_id
-                - name
-                - price
-                - quota
-                - max_purchase
-      security: []
-    delete:
-      summary: ''
-      operationId: deleteApiTicketsId
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
-      security: []
-    parameters:
-      -
-        in: path
-        name: id
-        description: 'The ID of the ticket.'
-        example: 10
-        required: true
-        schema:
-          type: integer
-  /api/transactions:
-    get:
-      summary: ''
-      operationId: getApiTransactions
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      security: []
-    post:
-      summary: ''
-      operationId: postApiTransactions
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                transaction_date:
-                  type: string
-                  description: 'Must be a valid date.'
-                  example: '2024-05-18T10:38:36'
-                event_id:
-                  type: string
-                  description: ''
-                  example: dolorem
-                ticket_id:
-                  type: string
-                  description: ''
-                  example: in
-                price:
-                  type: number
-                  description: ''
-                  example: 4900061.2080616
-                quantity:
-                  type: integer
-                  description: ''
-                  example: 16
-                buyer_name:
-                  type: string
-                  description: ''
-                  example: facilis
-                buyer_email:
-                  type: string
-                  description: 'Must be a valid email address.'
-                  example: kerluke.rhea@example.com
-                buyer_phone:
-                  type: string
-                  description: ''
-                  example: quod
-              required:
-                - transaction_date
-                - event_id
-                - ticket_id
-                - price
-                - quantity
-                - buyer_name
-                - buyer_email
-                - buyer_phone
-      security: []
-  '/api/transactions/{id}':
-    get:
-      summary: ''
-      operationId: getApiTransactionsId
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      security: []
-    put:
-      summary: ''
-      operationId: putApiTransactionsId
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                transaction_date:
-                  type: string
-                  description: 'Must be a valid date.'
-                  example: '2024-05-18T10:38:36'
-                event_id:
-                  type: string
-                  description: ''
-                  example: quibusdam
-                ticket_id:
-                  type: string
-                  description: ''
-                  example: omnis
-                price:
-                  type: number
-                  description: ''
-                  example: 64.404
-                quantity:
-                  type: integer
-                  description: ''
-                  example: 18
-                buyer_name:
-                  type: string
-                  description: ''
-                  example: nostrum
-                buyer_email:
-                  type: string
-                  description: 'Must be a valid email address.'
-                  example: reinhold.dare@example.com
-                buyer_phone:
-                  type: string
-                  description: ''
-                  example: et
-              required:
-                - transaction_date
-                - event_id
-                - ticket_id
-                - price
-                - quantity
-                - buyer_name
-                - buyer_email
-                - buyer_phone
-      security: []
-    delete:
-      summary: ''
-      operationId: deleteApiTransactionsId
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
-      security: []
-    parameters:
-      -
-        in: path
-        name: id
-        description: 'The ID of the transaction.'
-        example: 19
-        required: true
-        schema:
-          type: integer
 tags:
   -
     name: Endpoints
