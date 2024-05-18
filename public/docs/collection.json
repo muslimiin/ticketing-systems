@@ -1,0 +1,754 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost:8000"
+        }
+    ],
+    "info": {
+        "name": "Laravel",
+        "_postman_id": "6d4d45b6-f615-4b25-8bae-74f7a7ffed1f",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "GET api\/user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/events",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/events",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/events"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "[]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/events",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/events",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/events"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"cumque\",\"location\":\"exercitationem\",\"province\":\"ea\",\"category\":\"velit\",\"description\":\"amet\",\"information\":\"sequi\",\"image\":\"voluptas\",\"start_time\":\"2024-05-18T10:12:45\",\"end_time\":\"2024-05-18T10:12:45\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/events\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/events\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/events\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "6",
+                                    "description": "The ID of the event."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "58"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Event] 6\",\n    \"exception\": \"Symfony\\\\Component\\\\HttpKernel\\\\Exception\\\\NotFoundHttpException\",\n    \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php\",\n    \"line\": 487,\n    \"trace\": [\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php\",\n            \"line\": 463,\n            \"function\": \"prepareException\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Exceptions\\\\Handler\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/nunomaduro\/collision\/src\/Adapters\/Laravel\/ExceptionHandler.php\",\n            \"line\": 54,\n            \"function\": \"render\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Exceptions\\\\Handler\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php\",\n            \"line\": 51,\n            \"function\": \"render\",\n            \"class\": \"NunoMaduro\\\\Collision\\\\Adapters\\\\Laravel\\\\ExceptionHandler\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 188,\n            \"function\": \"handleException\",\n            \"class\": \"Illuminate\\\\Routing\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php\",\n            \"line\": 159,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php\",\n            \"line\": 135,\n            \"function\": \"handleRequest\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php\",\n            \"line\": 87,\n            \"function\": \"handleRequestUsingNamedLimiter\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 119,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 807,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 784,\n            \"function\": \"runRouteWithinStack\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 748,\n            \"function\": \"runRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 737,\n            \"function\": \"dispatchToRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 200,\n            \"function\": \"dispatch\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 144,\n            \"function\": \"Illuminate\\\\Foundation\\\\Http\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php\",\n            \"line\": 21,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ConvertEmptyStringsToNull.php\",\n            \"line\": 31,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ConvertEmptyStringsToNull\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php\",\n            \"line\": 21,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TrimStrings.php\",\n            \"line\": 40,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TrimStrings\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php\",\n            \"line\": 27,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/PreventRequestsDuringMaintenance.php\",\n            \"line\": 99,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\PreventRequestsDuringMaintenance\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Http\/Middleware\/HandleCors.php\",\n            \"line\": 62,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Http\\\\Middleware\\\\HandleCors\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Http\/Middleware\/TrustProxies.php\",\n            \"line\": 39,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Http\\\\Middleware\\\\TrustProxies\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 119,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 175,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 144,\n            \"function\": \"sendRequestThroughRouter\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 300,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 288,\n            \"function\": \"callLaravelOrLumenRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 91,\n            \"function\": \"makeApiCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 44,\n            \"function\": \"makeResponseCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 35,\n            \"function\": \"makeResponseCallIfConditionsPass\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 236,\n            \"function\": \"__invoke\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 166,\n            \"function\": \"iterateThroughStrategies\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 95,\n            \"function\": \"fetchResponses\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 125,\n            \"function\": \"processRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 72,\n            \"function\": \"extractEndpointsInfoFromLaravelApp\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 50,\n            \"function\": \"extractEndpointsInfoAndWriteToDisk\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Commands\/GenerateDocumentation.php\",\n            \"line\": 53,\n            \"function\": \"get\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"handle\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Commands\\\\GenerateDocumentation\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Util.php\",\n            \"line\": 41,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php\",\n            \"line\": 662,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php\",\n            \"line\": 211,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/symfony\/console\/Command\/Command.php\",\n            \"line\": 326,\n            \"function\": \"execute\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php\",\n            \"line\": 181,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Command\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 1096,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 324,\n            \"function\": \"doRunCommand\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 175,\n            \"function\": \"doRun\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php\",\n            \"line\": 201,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/artisan\",\n            \"line\": 37,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Console\\\\Kernel\",\n            \"type\": \"->\"\n        }\n    ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT api\/events\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/events\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/events\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "20",
+                                    "description": "The ID of the event."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"dolore\",\"location\":\"occaecati\",\"province\":\"ratione\",\"category\":\"in\",\"description\":\"quo\",\"information\":\"explicabo\",\"image\":\"facilis\",\"start_time\":\"2024-05-18T10:12:45\",\"end_time\":\"2024-05-18T10:12:45\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/events\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/events\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/events\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "20",
+                                    "description": "The ID of the event."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/tickets",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tickets",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tickets"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "57"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "[]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/tickets",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tickets",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tickets"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"event_id\":\"est\",\"name\":\"omnis\",\"price\":1060152.4399135697,\"quota\":2,\"max_purchase\":1}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/tickets\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tickets\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tickets\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "17",
+                                    "description": "The ID of the ticket."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "56"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Ticket] 17\",\n    \"exception\": \"Symfony\\\\Component\\\\HttpKernel\\\\Exception\\\\NotFoundHttpException\",\n    \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php\",\n    \"line\": 487,\n    \"trace\": [\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php\",\n            \"line\": 463,\n            \"function\": \"prepareException\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Exceptions\\\\Handler\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/nunomaduro\/collision\/src\/Adapters\/Laravel\/ExceptionHandler.php\",\n            \"line\": 54,\n            \"function\": \"render\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Exceptions\\\\Handler\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php\",\n            \"line\": 51,\n            \"function\": \"render\",\n            \"class\": \"NunoMaduro\\\\Collision\\\\Adapters\\\\Laravel\\\\ExceptionHandler\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 188,\n            \"function\": \"handleException\",\n            \"class\": \"Illuminate\\\\Routing\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php\",\n            \"line\": 159,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php\",\n            \"line\": 135,\n            \"function\": \"handleRequest\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php\",\n            \"line\": 87,\n            \"function\": \"handleRequestUsingNamedLimiter\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 119,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 807,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 784,\n            \"function\": \"runRouteWithinStack\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 748,\n            \"function\": \"runRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 737,\n            \"function\": \"dispatchToRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 200,\n            \"function\": \"dispatch\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 144,\n            \"function\": \"Illuminate\\\\Foundation\\\\Http\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php\",\n            \"line\": 21,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ConvertEmptyStringsToNull.php\",\n            \"line\": 31,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ConvertEmptyStringsToNull\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php\",\n            \"line\": 21,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TrimStrings.php\",\n            \"line\": 40,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TrimStrings\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php\",\n            \"line\": 27,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/PreventRequestsDuringMaintenance.php\",\n            \"line\": 99,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\PreventRequestsDuringMaintenance\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Http\/Middleware\/HandleCors.php\",\n            \"line\": 62,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Http\\\\Middleware\\\\HandleCors\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Http\/Middleware\/TrustProxies.php\",\n            \"line\": 39,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Http\\\\Middleware\\\\TrustProxies\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 119,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 175,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 144,\n            \"function\": \"sendRequestThroughRouter\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 300,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 288,\n            \"function\": \"callLaravelOrLumenRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 91,\n            \"function\": \"makeApiCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 44,\n            \"function\": \"makeResponseCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 35,\n            \"function\": \"makeResponseCallIfConditionsPass\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 236,\n            \"function\": \"__invoke\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 166,\n            \"function\": \"iterateThroughStrategies\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 95,\n            \"function\": \"fetchResponses\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 125,\n            \"function\": \"processRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 72,\n            \"function\": \"extractEndpointsInfoFromLaravelApp\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 50,\n            \"function\": \"extractEndpointsInfoAndWriteToDisk\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Commands\/GenerateDocumentation.php\",\n            \"line\": 53,\n            \"function\": \"get\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"handle\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Commands\\\\GenerateDocumentation\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Util.php\",\n            \"line\": 41,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php\",\n            \"line\": 662,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php\",\n            \"line\": 211,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/symfony\/console\/Command\/Command.php\",\n            \"line\": 326,\n            \"function\": \"execute\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php\",\n            \"line\": 181,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Command\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 1096,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 324,\n            \"function\": \"doRunCommand\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 175,\n            \"function\": \"doRun\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php\",\n            \"line\": 201,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/artisan\",\n            \"line\": 37,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Console\\\\Kernel\",\n            \"type\": \"->\"\n        }\n    ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT api\/tickets\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tickets\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tickets\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "13",
+                                    "description": "The ID of the ticket."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"event_id\":\"quia\",\"name\":\"impedit\",\"price\":4922148.32,\"quota\":7,\"max_purchase\":19}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/tickets\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tickets\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tickets\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "20",
+                                    "description": "The ID of the ticket."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/transactions",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/transactions",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/transactions"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "55"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "[]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/transactions",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/transactions",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/transactions"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"transaction_date\":\"2024-05-18T10:12:45\",\"event_id\":\"nobis\",\"ticket_id\":\"occaecati\",\"price\":55390.7,\"quantity\":11,\"buyer_name\":\"aut\",\"buyer_email\":\"trycia68@example.com\",\"buyer_phone\":\"omnis\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/transactions\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/transactions\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/transactions\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "7",
+                                    "description": "The ID of the transaction."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "54"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Transaction] 7\",\n    \"exception\": \"Symfony\\\\Component\\\\HttpKernel\\\\Exception\\\\NotFoundHttpException\",\n    \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php\",\n    \"line\": 487,\n    \"trace\": [\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php\",\n            \"line\": 463,\n            \"function\": \"prepareException\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Exceptions\\\\Handler\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/nunomaduro\/collision\/src\/Adapters\/Laravel\/ExceptionHandler.php\",\n            \"line\": 54,\n            \"function\": \"render\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Exceptions\\\\Handler\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php\",\n            \"line\": 51,\n            \"function\": \"render\",\n            \"class\": \"NunoMaduro\\\\Collision\\\\Adapters\\\\Laravel\\\\ExceptionHandler\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 188,\n            \"function\": \"handleException\",\n            \"class\": \"Illuminate\\\\Routing\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php\",\n            \"line\": 159,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php\",\n            \"line\": 135,\n            \"function\": \"handleRequest\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php\",\n            \"line\": 87,\n            \"function\": \"handleRequestUsingNamedLimiter\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 119,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 807,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 784,\n            \"function\": \"runRouteWithinStack\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 748,\n            \"function\": \"runRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 737,\n            \"function\": \"dispatchToRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 200,\n            \"function\": \"dispatch\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 144,\n            \"function\": \"Illuminate\\\\Foundation\\\\Http\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php\",\n            \"line\": 21,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ConvertEmptyStringsToNull.php\",\n            \"line\": 31,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ConvertEmptyStringsToNull\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php\",\n            \"line\": 21,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TrimStrings.php\",\n            \"line\": 40,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TrimStrings\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php\",\n            \"line\": 27,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/PreventRequestsDuringMaintenance.php\",\n            \"line\": 99,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\PreventRequestsDuringMaintenance\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Http\/Middleware\/HandleCors.php\",\n            \"line\": 62,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Http\\\\Middleware\\\\HandleCors\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Http\/Middleware\/TrustProxies.php\",\n            \"line\": 39,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Http\\\\Middleware\\\\TrustProxies\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 119,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 175,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 144,\n            \"function\": \"sendRequestThroughRouter\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 300,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 288,\n            \"function\": \"callLaravelOrLumenRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 91,\n            \"function\": \"makeApiCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 44,\n            \"function\": \"makeResponseCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 35,\n            \"function\": \"makeResponseCallIfConditionsPass\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 236,\n            \"function\": \"__invoke\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 166,\n            \"function\": \"iterateThroughStrategies\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 95,\n            \"function\": \"fetchResponses\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 125,\n            \"function\": \"processRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 72,\n            \"function\": \"extractEndpointsInfoFromLaravelApp\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 50,\n            \"function\": \"extractEndpointsInfoAndWriteToDisk\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/knuckleswtf\/scribe\/src\/Commands\/GenerateDocumentation.php\",\n            \"line\": 53,\n            \"function\": \"get\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"handle\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Commands\\\\GenerateDocumentation\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Util.php\",\n            \"line\": 41,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php\",\n            \"line\": 662,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php\",\n            \"line\": 211,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/symfony\/console\/Command\/Command.php\",\n            \"line\": 326,\n            \"function\": \"execute\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php\",\n            \"line\": 181,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Command\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 1096,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 324,\n            \"function\": \"doRunCommand\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 175,\n            \"function\": \"doRun\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php\",\n            \"line\": 201,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/inyourash\/pribadi\/ticketing-systems\/artisan\",\n            \"line\": 37,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Console\\\\Kernel\",\n            \"type\": \"->\"\n        }\n    ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT api\/transactions\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/transactions\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/transactions\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "11",
+                                    "description": "The ID of the transaction."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"transaction_date\":\"2024-05-18T10:12:45\",\"event_id\":\"quis\",\"ticket_id\":\"aperiam\",\"price\":21.2588,\"quantity\":17,\"buyer_name\":\"quia\",\"buyer_email\":\"benjamin.metz@example.org\",\"buyer_phone\":\"ut\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/transactions\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/transactions\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/transactions\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "5",
+                                    "description": "The ID of the transaction."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}
