@@ -4,12 +4,9 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Event;
-use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Gate;
 use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 
 class EventController extends Controller
 {
@@ -101,7 +98,6 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function show(Event $event)
     {
         if (is_null($this->user) || !$this->user->can('event.view')) {
@@ -125,8 +121,7 @@ class EventController extends Controller
         }
 
         $event = Event::find($id);
-        $roles  = Role::all();
-        return view('backend.pages.events.edit', compact('event', 'roles'));
+        return view('backend.pages.events.edit', compact('event'));
     }
 
     /**

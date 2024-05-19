@@ -75,6 +75,22 @@
                     </li>
                     @endif
 
+                    @if ($usr->can('ticket.create') || $usr->can('ticket.view') ||  $usr->can('ticket.edit') ||  $usr->can('ticket.delete'))
+                    <li>
+                        <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-tasks"></i><span>
+                            Tickets
+                        </span></a>
+                        <ul class="collapse {{ Route::is('admin.tickets.create') || Route::is('admin.tickets.index') || Route::is('admin.tickets.edit') || Route::is('admin.tickets.show') ? 'in' : '' }}">
+                            @if ($usr->can('ticket.view'))
+                                <li class="{{ Route::is('admin.tickets.index')  || Route::is('admin.tickets.edit') ? 'active' : '' }}"><a href="{{ route('admin.tickets.index') }}">All Tickets</a></li>
+                            @endif
+                            @if ($usr->can('ticket.create'))
+                                <li class="{{ Route::is('admin.tickets.create')  ? 'active' : '' }}"><a href="{{ route('admin.tickets.create') }}">Create Tickets</a></li>
+                            @endif
+                        </ul>
+                    </li>
+                    @endif
+
                 </ul>
             </nav>
         </div>
