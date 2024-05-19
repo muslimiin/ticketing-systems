@@ -13,7 +13,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::where('email', 'muslimink96@gmail.com')->first(); // Perbaiki email
+        $user = User::where('email', 'muslimink96@gmail.com')->first();
 
         if (is_null($user)) {
             User::create([

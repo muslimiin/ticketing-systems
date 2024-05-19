@@ -60,10 +60,7 @@ class RolePermissionSeeder extends Seeder
             [
                 'group_name' => 'reports',
                 'permissions' => [
-                    'reports.create',
-                    'reports.view',
-                    'reports.edit',
-                    'reports.delete',
+                    'reports',
                 ]
             ],
             [
@@ -115,11 +112,19 @@ class RolePermissionSeeder extends Seeder
                 $roleSuperAdmin->givePermissionTo($permission);
 
                 // Assign specific permissions to admin
+                if ($permissionName == 'dashboard.view') {
+                    $roleAdmin->givePermissionTo($permission);
+                }
+
                 if (in_array($permissionGroup['group_name'], ['event', 'ticket', 'transaction'])) {
                     $roleAdmin->givePermissionTo($permission);
                 }
 
                 // Assign create transaction permission to cashier
+                if ($permissionName == 'dashboard.view') {
+                    $roleCashier->givePermissionTo($permission);
+                }
+
                 if ($permissionName == 'transaction.create') {
                     $roleCashier->givePermissionTo($permission);
                 }
