@@ -47,25 +47,29 @@
                             enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
-                            <div class="form-group">
-                                <label for="name">Nama Event</label>
-                                <input type="text" class="form-control" id="name" value="{{ $event->name }}"
-                                    name="name" placeholder="Enter Event Name">
+                            <div class="form-row">
+                                <div class="form-group col-md-6 col-sm-12">
+                                    <label for="name">Nama Event</label>
+                                    <input type="text" class="form-control" id="name" value="{{ $event->name }}"
+                                        name="name" placeholder="Enter Event Name">
+                                </div>
+                                <div class="form-group col-md-6 col-sm-12">
+                                    <label for="location">Lokasi Event</label>
+                                    <input type="text" class="form-control" id="location" value="{{ $event->location }}"
+                                        name="location" placeholder="Enter Event Location">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="location">Lokasi Event</label>
-                                <input type="text" class="form-control" id="location" value="{{ $event->location }}"
-                                    name="location" placeholder="Enter Event Location">
-                            </div>
-                            <div class="form-group">
-                                <label for="province">Provinsi</label>
-                                <input type="text" class="form-control" id="province" value="{{ $event->province }}"
-                                    name="province" placeholder="Enter Province">
-                            </div>
-                            <div class="form-group">
-                                <label for="category">Kategori Event</label>
-                                <input type="text" class="form-control" id="category" value="{{ $event->category }}"
-                                    name="category" placeholder="Enter Event Category">
+                            <div class="form-row">
+                                <div class="form-group col-md-6 col-sm-12">
+                                    <label for="province">Provinsi</label>
+                                    <input type="text" class="form-control" id="province" value="{{ $event->province }}"
+                                        name="province" placeholder="Enter Province">
+                                </div>
+                                <div class="form-group col-md-6 col-sm-12">
+                                    <label for="category">Kategori Event</label>
+                                    <input type="text" class="form-control" id="category" value="{{ $event->category }}"
+                                        name="category" placeholder="Enter Event Category">
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="description">Deskripsi Event</label>
@@ -81,15 +85,18 @@
                                 <img src="{{ asset('storage/' . $event->image) }}" alt="{{ $event->name }}"
                                     style="max-width: 200px; margin-top: 10px;">
                             </div>
-                            <div class="form-group">
-                                <label for="start_time">Mulai Event</label>
-                                <input type="datetime-local" class="form-control" id="start_time" name="start_time"
-                                    value="{{ date('Y-m-d\TH:i', strtotime($event->start_time)) }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="end_time">Akhir Event</label>
-                                <input type="datetime-local" class="form-control" id="end_time" name="end_time"
-                                    value="{{ date('Y-m-d\TH:i', strtotime($event->end_time)) }}">
+                            <div class="form-row">
+
+                                <div class="form-group col-md-6 col-sm-12">
+                                    <label for="start_time">Mulai Event</label>
+                                    <input type="datetime-local" class="form-control" id="start_time" name="start_time"
+                                        value="{{ date('Y-m-d\TH:i', strtotime($event->start_time)) }}">
+                                </div>
+                                <div class="form-group col-md-6 col-sm-12">
+                                    <label for="end_time">Akhir Event</label>
+                                    <input type="datetime-local" class="form-control" id="end_time" name="end_time"
+                                        value="{{ date('Y-m-d\TH:i', strtotime($event->end_time)) }}">
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Update Event</button>
                         </form>

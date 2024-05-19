@@ -45,25 +45,29 @@
 
                         <form action="{{ route('admin.events.store') }}" method="POST">
                             @csrf
-                            <div class="form-group">
-                                <label for="name">Nama Event</label>
-                                <input type="text" class="form-control" id="name" name="name"
-                                    placeholder="Masukkan Nama Event">
+                            <div class="form-row">
+                                <div class="form-group col-md-6 col-sm-12">
+                                    <label for="name">Nama Event</label>
+                                    <input type="text" class="form-control" id="name" name="name"
+                                        placeholder="Masukkan Nama Event">
+                                </div>
+                                <div class="form-group col-md-6 col-sm-12">
+                                    <label for="location">Lokasi Event</label>
+                                    <input type="text" class="form-control" id="location" name="location"
+                                        placeholder="Masukkan Lokasi Event">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="location">Lokasi Event</label>
-                                <input type="text" class="form-control" id="location" name="location"
-                                    placeholder="Masukkan Lokasi Event">
-                            </div>
-                            <div class="form-group">
-                                <label for="province">Provinsi</label>
-                                <input type="text" class="form-control" id="province" name="province"
-                                    placeholder="Masukkan Provinsi">
-                            </div>
-                            <div class="form-group">
-                                <label for="category">Kategori Event</label>
-                                <input type="text" class="form-control" id="category" name="category"
-                                    placeholder="Masukkan Kategori Event">
+                            <div class="form-row">
+                                <div class="form-group col-md-6 col-sm-12">
+                                    <label for="province">Provinsi</label>
+                                    <input type="text" class="form-control" id="province" name="province"
+                                        placeholder="Masukkan Provinsi">
+                                </div>
+                                <div class="form-group col-md-6 col-sm-12">
+                                    <label for="category">Kategori Event</label>
+                                    <input type="text" class="form-control" id="category" name="category"
+                                        placeholder="Masukkan Kategori Event">
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="description">Deskripsi Event</label>
@@ -77,13 +81,15 @@
                                 <label for="image">Gambar Event</label>
                                 <input type="file" class="form-control" id="image" name="image">
                             </div>
-                            <div class="form-group">
-                                <label for="start_time">Mulai Event</label>
-                                <input type="datetime-local" class="form-control" id="start_time" name="start_time">
-                            </div>
-                            <div class="form-group">
-                                <label for="end_time">Akhir Event</label>
-                                <input type="datetime-local" class="form-control" id="end_time" name="end_time">
+                            <div class="form-row">
+                                <div class="form-group col-md-6 col-sm-12">
+                                    <label for="start_time">Mulai Event</label>
+                                    <input type="datetime-local" class="form-control" id="start_time" name="start_time">
+                                </div>
+                                <div class="form-group col-md-6 col-sm-12">
+                                    <label for="end_time">Akhir Event</label>
+                                    <input type="datetime-local" class="form-control" id="end_time" name="end_time">
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Save Event</button>
                         </form>
