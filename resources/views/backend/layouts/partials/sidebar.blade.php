@@ -59,6 +59,22 @@
                     </li>
                     @endif
 
+                    @if ($usr->can('event.create') || $usr->can('event.view') ||  $usr->can('event.edit') ||  $usr->can('event.delete'))
+                    <li>
+                        <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-tasks"></i><span>
+                            Events
+                        </span></a>
+                        <ul class="collapse {{ Route::is('admin.events.create') || Route::is('admin.events.index') || Route::is('admin.events.edit') || Route::is('admin.events.show') ? 'in' : '' }}">
+                            @if ($usr->can('event.view'))
+                                <li class="{{ Route::is('admin.events.index')  || Route::is('admin.events.edit') ? 'active' : '' }}"><a href="{{ route('admin.events.index') }}">All Events</a></li>
+                            @endif
+                            @if ($usr->can('event.create'))
+                                <li class="{{ Route::is('admin.events.create')  ? 'active' : '' }}"><a href="{{ route('admin.events.create') }}">Create Event</a></li>
+                            @endif
+                        </ul>
+                    </li>
+                    @endif
+
                 </ul>
             </nav>
         </div>

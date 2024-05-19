@@ -31,30 +31,30 @@ class RolePermissionSeeder extends Seeder
                 ]
             ],
             [
-                'group_name' => 'events',
+                'group_name' => 'event',
                 'permissions' => [
-                    'events.create',
-                    'events.view',
-                    'events.edit',
-                    'events.delete',
+                    'event.create',
+                    'event.view',
+                    'event.edit',
+                    'event.delete',
                 ]
             ],
             [
-                'group_name' => 'tickets',
+                'group_name' => 'ticket',
                 'permissions' => [
-                    'tickets.create',
-                    'tickets.view',
-                    'tickets.edit',
-                    'tickets.delete',
+                    'ticket.create',
+                    'ticket.view',
+                    'ticket.edit',
+                    'ticket.delete',
                 ]
             ],
             [
-                'group_name' => 'transactions',
+                'group_name' => 'transaction',
                 'permissions' => [
-                    'transactions.create',
-                    'transactions.view',
-                    'transactions.edit',
-                    'transactions.delete',
+                    'transaction.create',
+                    'transaction.view',
+                    'transaction.edit',
+                    'transaction.delete',
                 ]
             ],
             [
@@ -115,12 +115,12 @@ class RolePermissionSeeder extends Seeder
                 $roleSuperAdmin->givePermissionTo($permission);
 
                 // Assign specific permissions to admin
-                if (in_array($permissionGroup['group_name'], ['events', 'tickets', 'transactions'])) {
+                if (in_array($permissionGroup['group_name'], ['event', 'ticket', 'transaction'])) {
                     $roleAdmin->givePermissionTo($permission);
                 }
 
                 // Assign create transaction permission to cashier
-                if ($permissionName == 'transactions.create') {
+                if ($permissionName == 'transaction.create') {
                     $roleCashier->givePermissionTo($permission);
                 }
             }

@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\TicketController;
+use App\Http\Controllers\TransactionController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +35,9 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('users', 'Backend\UsersController', ['names' => 'admin.users']);
     Route::resource('admins', 'Backend\AdminsController', ['names' => 'admin.admins']);
 
+    Route::resource('events', 'Backend\EventController', ['names' => 'admin.events']);
+    Route::resource('tickets', 'Backend\TicketController', ['names' => 'admin.tickets']);
+    Route::resource('transactions', 'Backend\TransactionController', ['names' => 'admin.transactions']);
 
     // Login Routes
     Route::get('/login', 'Backend\Auth\LoginController@showLoginForm')->name('admin.login');
@@ -40,6 +47,6 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/logout/submit', 'Backend\Auth\LoginController@logout')->name('admin.logout.submit');
 
     // Forget Password Routes
-    Route::get('/password/reset', 'Backend\Auth\ForgetPasswordController@showLinkRequestForm')->name('admin.password.request');
-    Route::post('/password/reset/submit', 'Backend\Auth\ForgetPasswordController@reset')->name('admin.password.update');
+    Route::get('/password/reset', 'Backend\Auth\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+    Route::post('/password/reset/submit', 'Backend\Auth\ForgotPasswordController@reset')->name('admin.password.update');
 });
