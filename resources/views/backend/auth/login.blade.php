@@ -1,7 +1,7 @@
 @extends('backend.auth.auth_master')
 
 @section('auth_title')
-    Login | Admin Panel
+    Login | Ticketing System
 @endsection
 
 @section('auth-content')
@@ -13,7 +13,7 @@
                     @csrf
                     <div class="login-form-head">
                         <h4>Sign In</h4>
-                        <p>Hello there, Sign in and start managing your Admin Panel</p>
+                        <p>Hello there, Sign in and start managing your Ticketing System</p>
                     </div>
                     <div class="login-form-body">
                         @include('backend.layouts.partials.messages')

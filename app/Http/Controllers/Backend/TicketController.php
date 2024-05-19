@@ -175,4 +175,16 @@ class TicketController extends Controller
         session()->flash('success', 'Ticket has been deleted !!');
         return back();
     }
+
+    public function getByEvent($eventId)
+    {
+        $tickets = Ticket::where('event_id', $eventId)->get();
+        return response()->json($tickets);
+    }
+
+    public function getPrice($ticketId)
+    {
+        $ticket = Ticket::find($ticketId);
+        return response()->json(['price' => $ticket->price]);
+    }
 }

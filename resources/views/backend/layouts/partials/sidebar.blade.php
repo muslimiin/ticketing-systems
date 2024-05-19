@@ -91,6 +91,22 @@
                     </li>
                     @endif
 
+                    @if ($usr->can('transaction.create') || $usr->can('transaction.view') ||  $usr->can('transaction.edit') ||  $usr->can('transaction.delete'))
+                    <li>
+                        <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-tasks"></i><span>
+                            Transactions
+                        </span></a>
+                        <ul class="collapse {{ Route::is('admin.transactions.create') || Route::is('admin.transactions.index') || Route::is('admin.transactions.edit') || Route::is('admin.transactions.show') ? 'in' : '' }}">
+                            @if ($usr->can('transaction.view'))
+                                <li class="{{ Route::is('admin.transactions.index')  || Route::is('admin.transactions.edit') ? 'active' : '' }}"><a href="{{ route('admin.transactions.index') }}">All Transactions</a></li>
+                            @endif
+                            @if ($usr->can('transaction.create'))
+                                <li class="{{ Route::is('admin.transactions.create')  ? 'active' : '' }}"><a href="{{ route('admin.transactions.create') }}">Create Transactions</a></li>
+                            @endif
+                        </ul>
+                    </li>
+                    @endif
+
                 </ul>
             </nav>
         </div>
