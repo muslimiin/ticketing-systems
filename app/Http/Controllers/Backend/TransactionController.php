@@ -61,7 +61,7 @@ class TransactionController extends Controller
 
         if ($ticket) {
             if ($ticket->max_purchase && $validated['quantity'] > $ticket->max_purchase) {
-                return redirect()->back()->withInput()->withErrors(['quantity' => 'Maksimal pembelian tiket terlampaui']);
+                return redirect()->back()->withInput()->withErrors(['quantity' => 'Jumlah pembelian melebihi kuota Maksimal pembelian tiket']);
             }
 
             if ($validated['quantity'] > $ticket->quota) {
@@ -121,7 +121,7 @@ class TransactionController extends Controller
 
         if ($ticket) {
             if ($ticket->max_purchase && $request->quantity > $ticket->max_purchase) {
-                return redirect()->back()->withInput()->withErrors(['quantity' => 'Maksimal pembelian tiket terlampaui']);
+                return redirect()->back()->withInput()->withErrors(['quantity' => 'Jumlah pembelian melebihi kuota Maksimal pembelian tiket']);
             }
 
             if ($request->quantity > $ticket->quota) {
