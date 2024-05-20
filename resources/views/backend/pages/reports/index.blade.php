@@ -84,12 +84,12 @@
                                 <thead class="bg-light text-capitalize">
                                     <tr>
                                         <th>No</th>
+                                        <th>Tanggal Transaksi</th>
                                         <th>Nama Pembeli</th>
                                         <th>Email Pembeli</th>
                                         <th>Telepon Pembeli</th>
                                         <th>Nama Tiket</th>
                                         <th>Event</th>
-                                        <th>Tanggal Transaksi</th>
                                         <th>Jumlah</th>
                                         <th>Total Harga</th>
                                     </tr>
@@ -98,13 +98,13 @@
                                     @foreach ($transactions as $transaction)
                                         <tr>
                                             <td>{{ $loop->index + 1 }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($transaction->transaction_date)->format('j F Y H:i:s') }}
+                                            </td>
                                             <td>{{ $transaction->buyer_name }}</td>
                                             <td>{{ $transaction->buyer_email }}</td>
                                             <td>{{ $transaction->buyer_phone }}</td>
                                             <td>{{ $transaction->ticket->name }}</td>
                                             <td>{{ $transaction->event->name }}</td>
-                                            <td>{{ \Carbon\Carbon::parse($transaction->transaction_date)->format('j F Y H:i:s') }}
-                                            </td>
                                             <td>{{ $transaction->quantity }}</td>
                                             <td>{{ $transaction->total }}</td>
                                         </tr>
@@ -131,8 +131,8 @@
 
     <script>
         /*================================
-            datatable active
-            ==================================*/
+                datatable active
+                ==================================*/
         if ($('#dataTable').length) {
             $('#dataTable').DataTable({
                 responsive: true
