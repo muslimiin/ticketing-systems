@@ -77,27 +77,30 @@
                                             <td>{{ $event->description }}</td>
                                             <td>{{ $event->information }}</td>
                                             <td>
-                                                <img src="{{ asset('public/events/' . $event->image) }}" alt=""
-                                                    width="50%">
+                                                <img src="{{ asset('public/events/' . $event->image) }}"
+                                                    alt="{{ $event->image }}" width="50%">
                                             </td>
                                             <td>{{ \Carbon\Carbon::parse($event->start_time)->format('j F Y H:i:s') }}</td>
                                             <td>{{ \Carbon\Carbon::parse($event->end_time)->format('j F Y H:i:s') }}</td>
 
-
                                             <td>
                                                 @if (Auth::guard('admin')->user()->can('event.edit'))
-                                                    <a class="btn btn-success text-white" href="{{ route('admin.events.edit', $event->id) }}">Edit</a>
+                                                    <a class="btn btn-success text-white"
+                                                        href="{{ route('admin.events.edit', $event->id) }}">Edit</a>
                                                 @endif
 
                                                 @if (Auth::guard('admin')->user()->can('event.delete'))
-                                                <a class="btn btn-danger text-white" href="{{ route('admin.events.destroy', $event->id) }}"
-                                                onclick="event.preventDefault(); document.getElementById('delete-form-{{ $event->id }}').submit();">
-                                                    Delete
-                                                </a>
-                                                <form id="delete-form-{{ $event->id }}" action="{{ route('admin.events.destroy', $event->id) }}" method="POST" style="display: none;">
-                                                    @method('DELETE')
-                                                    @csrf
-                                                </form>
+                                                    <a class="btn btn-danger text-white"
+                                                        href="{{ route('admin.events.destroy', $event->id) }}"
+                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $event->id }}').submit();">
+                                                        Delete
+                                                    </a>
+                                                    <form id="delete-form-{{ $event->id }}"
+                                                        action="{{ route('admin.events.destroy', $event->id) }}"
+                                                        method="POST" style="display: none;">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                    </form>
                                                 @endif
                                             </td>
                                         </tr>
@@ -125,8 +128,8 @@
 
     <script>
         /*================================
-                        datatable active
-                        ==================================*/
+                            datatable active
+                            ==================================*/
         if ($('#dataTable').length) {
             $('#dataTable').DataTable({
                 responsive: true

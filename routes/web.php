@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\ReportController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +36,9 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('events', 'Backend\EventController', ['names' => 'admin.events']);
     Route::resource('tickets', 'Backend\TicketController', ['names' => 'admin.tickets']);
     Route::resource('transactions', 'Backend\TransactionController', ['names' => 'admin.transactions']);
+
+    Route::get('reports', [ReportController::class, 'index'])->name('admin.reports.index');
+    Route::get('reports/pdf', [ReportController::class, 'generatePDF'])->name('admin.reports.pdf');
 
     // Routes for AJAX requests to get tickets by event and ticket price
     Route::get('tickets/get-by-event/{event_id}', 'Backend\TicketController@getByEvent');

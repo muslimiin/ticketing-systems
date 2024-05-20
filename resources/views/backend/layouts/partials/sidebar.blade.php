@@ -107,6 +107,22 @@
                     </li>
                     @endif
 
+                    @if ($usr->can('report.view') ||  $usr->can('report.generate'))
+                    <li>
+                        <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-tasks"></i><span>
+                            Reports
+                        </span></a>
+                        <ul class="collapse {{Route::is('admin.reports.index') || Route::is('admin.reports.pdf') ? 'in' : '' }}">
+                            @if ($usr->can('report.view'))
+                                <li class="{{ Route::is('admin.reports.index')  || Route::is('admin.reports.pdf') ? 'active' : '' }}"><a href="{{ route('admin.reports.index') }}">All Reports</a></li>
+                            @endif
+                            @if ($usr->can('report.generate'))
+                                <li class="{{ Route::is('admin.reports.pdf')  ? 'active' : '' }}"><a href="{{ route('admin.reports.pdf') }}">Export Data</a></li>
+                            @endif
+                        </ul>
+                    </li>
+                    @endif
+
                 </ul>
             </nav>
         </div>
