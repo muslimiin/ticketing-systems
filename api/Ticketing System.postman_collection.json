@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "f4014707-6976-48b3-a477-20935015295f",
+		"name": "Ticketing System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23614010"
+	},
+	"item": [
+		{
+			"name": "Endpoints Event API",
+			"item": [
+				{
+					"name": "GET api/events",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/events",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"events"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/events",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"events"
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "cache-control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "x-ratelimit-limit",
+									"value": "60"
+								},
+								{
+									"key": "x-ratelimit-remaining",
+									"value": "58"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "[{\"id\":1,\"name\":\"ipsam\",\"location\":\"suscipit\",\"province\":\"omnis\",\"category\":\"dolores\",\"description\":\"tempore\",\"information\":\"et\",\"image\":\"cupiditate\",\"start_time\":\"2024-05-18 14:31:28\",\"end_time\":\"2024-05-18 14:31:28\",\"created_at\":\"2024-05-18T14:34:03.000000Z\",\"updated_at\":\"2024-05-18T14:34:03.000000Z\",\"created_by\":null,\"updated_by\":null}]"
+						}
+					]
+				},
+				{
+					"name": "GET api/events/{id}",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/events/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"events",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "The ID of the event."
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/events/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"events",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"description": "The ID of the event."
+										}
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "cache-control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "x-ratelimit-limit",
+									"value": "60"
+								},
+								{
+									"key": "x-ratelimit-remaining",
+									"value": "57"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\"id\":1,\"name\":\"ipsam\",\"location\":\"suscipit\",\"province\":\"omnis\",\"category\":\"dolores\",\"description\":\"tempore\",\"information\":\"et\",\"image\":\"cupiditate\",\"start_time\":\"2024-05-18 14:31:28\",\"end_time\":\"2024-05-18 14:31:28\",\"created_at\":\"2024-05-18T14:34:03.000000Z\",\"updated_at\":\"2024-05-18T14:34:03.000000Z\",\"created_by\":null,\"updated_by\":null}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8000",
+			"type": "string"
+		}
+	]
+}

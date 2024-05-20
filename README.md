@@ -61,5 +61,8 @@ php artisan serve
 
 So, You've got the project of Laravel Ticketing Management System on your http://localhost:8000
 
+## API Event Documentation
+Event API documentation can be seen in the api folder, inside which there is a Postman collection file in JSON format. Please download and import it into your Postman to view the Event API Documentation.
+
 ## Contribution
 Contribution is open. Create Pull-request and I'll add it to the project if it's good enough.
